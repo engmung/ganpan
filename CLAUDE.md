@@ -90,5 +90,5 @@ private/           비공개 메모, 글 초안 (gitignore)
    - 내용의 출처는 그 저장소의 README · BUILD_GUIDE.md · PATTERN_GUIDE.md · `hardware/bom/bom_v3.9.csv`. 전원은 `J4` 스크루 터미널뿐이다(USB-C를 전원으로 서술 금지 — 그 저장소의 hard rule).
 4. 글 초안의 대괄호 사실관계 채우기 → 마지막 링크 자리 채우기 → 공개
 5. 공개 절차: GitHub Release(v0.1) → Zenodo DOI → Wayback Machine 스냅샷. 기존 BYOA 저장소는 수정하지 말고 README 상단에 Ganpan 링크 한 줄만 추가
-6. 공개할 연락 경로 결정, robots.txt 의 `ai-train` 값 결정
+6. ~~공개할 연락 경로, robots.txt 의 `ai-train` 값~~ — 2026-09-20 결정: 연락은 GitHub 이슈(https://github.com/engmung/ganpan/issues), 이메일은 공개하지 않는다. `ai-train=yes`. 나중에 메일 주소가 필요하면 Cloudflare Email Routing으로 `hello@ganpan.org` → 개인 메일 전달(무료, DNS가 이미 Cloudflare).
    - ~~규약 라이선스~~ — 2026-09-20 결정: 글(SPEC·site·docs) CC BY 4.0, 코드(tools) MIT, `template/` CC0. `LICENSE.md` 참고. 규약을 따라 간판을 다는 데에는 허락도 출처 표시도 필요 없다.

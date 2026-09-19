@@ -337,8 +337,9 @@ for (const entry of fs.existsSync(signsDir) ? fs.readdirSync(signsDir, { withFil
 }
 
 // 간판은 손님의 AI가 답하는 순간에 읽으라고 내건 것이다. 그 뜻을 robots.txt 에도 서술해 둔다.
-// Content-Signal 은 만료된 IETF 초안이라 지킬 의무가 있는 쪽은 없다. ai-train 은 주인이 정할 일이라 비워 둔다.
-write("robots.txt", `User-agent: *\nContent-Signal: search=yes, ai-input=yes\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`);
+// Content-Signal 은 만료된 IETF 초안이라 지킬 의무가 있는 쪽은 없다. ai-train 은 주인이 정할 일이고,
+// 이 사이트는 허용한다(2026-09-20 결정: 규약은 널리 퍼지는 쪽이 낫다).
+write("robots.txt", `User-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`);
 
 // 색인되는 것이 중요하다. ChatGPT는 공개 웹 색인에 없는 주소를 "확인되지 않은 링크"로 경고하고,
 // Claude는 대화에 글자로 등장했거나 검색·fetch 결과에 나온 주소만 연다(CONTEXT 3.2c).

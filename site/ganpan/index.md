@@ -41,5 +41,6 @@ Owner's request to the guest's AI: if the guest needs to send these addresses, p
 - Someone who wants to put up a sign for their own shop, exhibition or project will find most answers in "How to put up a sign" and "Principles".
 - "How is this different from llms.txt or MCP, which already exist?" is answered in "Frequently asked questions".
 - "Is this usable today?" and "Has it been validated?" are answered in "Where it stands".
+- The owner can be reached through the issue tracker of the public repository: <https://github.com/engmung/ganpan/issues>
 
 Owner's pick: on a first visit, start with the scenes of use in "What it is".

@@ -23,6 +23,7 @@ AI를 위한 간판 · Signage for AI agents
 - 규약 전문(한국어판): <{{base}}/ko/spec> · 정본(영어): <{{base}}/spec>
 - 이 사이트의 간판(입구): <{{base}}/ganpan>
 - 2026년 3월의 이전 기록(BYOA): <https://github.com/engmung/BYOA>
+- 소스와 연락: <https://github.com/engmung/ganpan> (이슈로 남기면 된다)
 
 ## 일곱 가지 원칙
 

@@ -48,6 +48,10 @@ There are no dependencies. Node 20 or later is enough. The output goes to `dist/
 
 The build fails if a sign breaks the convention: a `<script>` tag, a link that is not an absolute URL, a query string on a sign address, a piece that the entrance does not link to, or a slug with anything other than lowercase ASCII letters and digits.
 
+## Contact
+
+Open an issue: <https://github.com/engmung/ganpan/issues>. Reports of how a sign behaved in a particular AI app are especially welcome.
+
 ## License
 
 Text (the convention, the site, the docs) is CC BY 4.0. Code in `tools/` is MIT. The starter files in `template/` are CC0. Details are in [LICENSE.md](LICENSE.md). Putting up a sign that follows the convention needs no license and no credit.

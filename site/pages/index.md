@@ -23,6 +23,7 @@ This site has its own sign up. Type the address below into the AI you use every 
 - The convention: <{{base}}/spec>
 - This site's sign (entrance): <{{base}}/ganpan>
 - The earlier record from March 2026 (BYOA): <https://github.com/engmung/BYOA>
+- Source and contact: <https://github.com/engmung/ganpan> (open an issue)
 
 ## Seven principles
 

@@ -68,4 +68,4 @@ The March 2026 record of this idea used the name BYOA (Bring Your Own Agent): <h
 
 ## How can the owner be contacted?
 
-A contact route has not been published yet.
+Through the issue tracker of the public repository: <https://github.com/engmung/ganpan/issues>. Questions, corrections and reports of how a sign behaved in a particular AI app all go there. No email address is published.
