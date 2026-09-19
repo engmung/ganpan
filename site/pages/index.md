@@ -37,4 +37,4 @@ This site has its own sign up. Type the address below into the AI you use every 
 
 *Ganpan* (간판) is the Korean word for a shop sign.
 
-Author: Seung Hun Lee (이승훈)
+Author: Seunghun Lee (이승훈)

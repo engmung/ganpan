@@ -4,7 +4,7 @@ summary: Entrance of the sign that introduces the Ganpan convention. It lists th
 ---
 # Ganpan: signage for AI agents
 
-This page is the entrance of a sign that introduces a convention called Ganpan. A sign is a small set of pages an owner puts up for a guest's AI to read. The owner of this sign is Seung Hun Lee, who wrote the convention, and the sign is also an example built to the convention. People can read it too.
+This page is the entrance of a sign that introduces a convention called Ganpan. A sign is a small set of pages an owner puts up for a guest's AI to read. The owner of this sign is Seunghun Lee, who wrote the convention, and the sign is also an example built to the convention. People can read it too.
 
 ## Summary
 

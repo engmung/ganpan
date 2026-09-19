@@ -56,4 +56,4 @@ Open an issue: <https://github.com/engmung/ganpan/issues>. Reports of how a sign
 
 Text (the convention, the site, the docs) is CC BY 4.0. Code in `tools/` is MIT. The starter files in `template/` are CC0. Details are in [LICENSE.md](LICENSE.md). Putting up a sign that follows the convention needs no license and no credit.
 
-Author: Seung Hun Lee (이승훈)
+Author: Seunghun Lee (이승훈)

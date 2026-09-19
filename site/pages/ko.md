@@ -35,4 +35,4 @@ AI를 위한 간판 · Signage for AI agents
 6. 손님은 자기 AI를 데려온다.
 7. 간판은 주인의 주소에 단다.
 
-작성: 이승훈 (Seung Hun Lee)
+작성: 이승훈 (Seunghun Lee)

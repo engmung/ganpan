@@ -1,6 +1,6 @@
 # Licenses
 
-Copyright (c) 2026 Seung Hun Lee (이승훈)
+Copyright (c) 2026 Seunghun Lee (이승훈)
 
 This repository has three kinds of material, each under its own license.
 
@@ -14,7 +14,7 @@ The convention (`SPEC.md`, `SPEC.ko.md`), the pages of the site and of its sign 
 
 You may copy, adapt and redistribute this material, including commercially, as long as you give credit. A suitable credit line:
 
-> Ganpan convention, by Seung Hun Lee. https://ganpan.org/spec (CC BY 4.0)
+> Ganpan convention, by Seunghun Lee. https://ganpan.org/spec (CC BY 4.0)
 
 Following the convention to put up your own sign does not require any license or credit. The license covers the text of these documents, and a sign you write is your own work.
 

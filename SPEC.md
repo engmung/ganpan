@@ -4,7 +4,7 @@ Signage for AI agents · AI를 위한 간판
 
 Status: draft. It has not been validated in the field. The rules come from prototype experiments in March 2026, a survey of related work in September 2026, and a first round of app tests on 20 September 2026. They will change as tests continue, and changes are recorded in the last section.
 
-Author: Seung Hun Lee (이승훈) · Korean version: <{{base}}/ko/spec>
+Author: Seunghun Lee (이승훈) · Korean version: <{{base}}/ko/spec>
 
 License: CC BY 4.0 (<https://creativecommons.org/licenses/by/4.0/>). Putting up a sign that follows this convention needs no license and no credit.
 

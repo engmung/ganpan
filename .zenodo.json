@@ -1,0 +1,19 @@
+{
+  "title": "Ganpan: signage for AI agents (convention, draft v0.1)",
+  "upload_type": "publication",
+  "publication_type": "technicalnote",
+  "description": "<p>Ganpan is a convention for signage that AI agents can read. The owner of a place, an object or a project puts up a small set of pages at <code>/ganpan</code> on their own address, and a guest types that address into the AI they already use (ChatGPT, Gemini, Claude). The owner builds no AI.</p><p>This is draft v0.1. It has not been validated in the field. The archive holds the convention text in English and Korean, the source of ganpan.org including the sign for Ganpan itself, a no-dependency static build, survey notes with sources, and the log of a first round of tests in the ChatGPT, Claude and Gemini apps on 20 September 2026.</p><p>Text is licensed CC BY 4.0, code MIT, and the starter template CC0. An earlier record of the idea, from March 2026, is at https://github.com/engmung/BYOA.</p>",
+  "creators": [
+    { "name": "Lee, Seunghun" }
+  ],
+  "license": "cc-by-4.0",
+  "language": "eng",
+  "version": "0.1",
+  "keywords": [
+    "AI agents",
+    "signage",
+    "web convention",
+    "prompt injection",
+    "bring your own agent"
+  ]
+}

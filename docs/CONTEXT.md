@@ -19,7 +19,7 @@
 핵심 서사: Barai에서 겪은 고통(공급자가 AI를 만들고 비용을 짐)을 **뒤집은 것**이 이 구조다.
 손님은 이미 AI를 갖고 있으니, 주인은 AI가 읽을 것만 내걸면 된다.
 
-작성자 표기: 이승훈. 영문 표기는 문서마다 Seunghoon / Seunghun 이 섞여 있었음 `[하나로 통일 필요]`.
+작성자 표기: 이승훈. 영문 표기는 **Seunghun Lee** 로 통일(2026-09-20 결정, Patternflow의 CITATION.cff 와 같은 표기). 인용 형식은 "Lee, Seunghun".
 소속 표기(과거 README 기준): 홍익대 시각디자인, patternflow.work.
 
 ---

@@ -8,7 +8,7 @@ Ganpan (간판, the Korean word for a shop sign) is a convention for putting up 
 
 ## The structure, turned around
 
-When someone builds an AI for a shop or an exhibition, the builder ends up paying for inference, setting it up for each venue, and asking guests to learn an unfamiliar screen. Small venues cannot afford that. Seung Hun Lee, who wrote this convention, says he ran into this while building Barai, an AI drink-recommendation agent for bars.
+When someone builds an AI for a shop or an exhibition, the builder ends up paying for inference, setting it up for each venue, and asking guests to learn an unfamiliar screen. Small venues cannot afford that. Seunghun Lee, who wrote this convention, says he ran into this while building Barai, an AI drink-recommendation agent for bars.
 
 Ganpan turns that structure around. Guests already have an AI, so the owner builds none and only puts up something for the guest's AI to read. The guest's AI does the inference, and the owner's inference cost is zero.
 

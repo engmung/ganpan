@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use or write about Ganpan, please cite it as below."
+type: software
+title: "Ganpan: signage for AI agents"
+version: "0.1"
+date-released: "2026-09-20"
+authors:
+  - family-names: Lee
+    given-names: Seunghun
+    alias: engmung
+repository-code: "https://github.com/engmung/ganpan"
+url: "https://ganpan.org"
+abstract: >-
+  A convention for signage that AI agents can read. The owner of a place,
+  an object or a project puts up a small set of pages at /ganpan on their
+  own address, and a guest types that address into the AI they already use.
+  The owner builds no AI. Draft v0.1, not yet validated in the field.
+  The repository holds the convention text, the source of ganpan.org
+  including the sign for Ganpan itself, a no-dependency static build, and
+  a log of the first tests in the ChatGPT, Claude and Gemini apps.
+keywords:
+  - ai-agents
+  - signage
+  - web-convention
+  - prompt-injection
+  - bring-your-own-agent
+license:
+  - CC-BY-4.0
+  - MIT
+  - CC0-1.0
