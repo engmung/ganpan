@@ -2,7 +2,7 @@
 
 이 문서는 한국어판이다. 정본은 영어판이다: <{{base}}/spec>
 
-라이선스: CC BY 4.0 (<https://creativecommons.org/licenses/by/4.0/>). 이 규약을 따라 간판을 다는 데에는 허락도 출처 표시도 필요 없다.
+DOI: <https://doi.org/10.5281/zenodo.22849147> (모든 버전) · 라이선스: CC BY 4.0 (<https://creativecommons.org/licenses/by/4.0/>). 이 규약을 따라 간판을 다는 데에는 허락도 출처 표시도 필요 없다.
 
 AI를 위한 간판 · Signage for AI agents
 

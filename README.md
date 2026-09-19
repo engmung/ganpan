@@ -8,6 +8,8 @@ The owner of a place, an object, or a project puts up pages a guest's AI can rea
 
 > Status: draft v0.1. It has not been validated in the field.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22849147.svg)](https://doi.org/10.5281/zenodo.22849147)
+
 ## Try it
 
 Type this address into your AI chat and ask what Ganpan is, in any language:
@@ -47,6 +49,12 @@ npm run build
 There are no dependencies. Node 20 or later is enough. The output goes to `dist/` and can be put on any static host. Pushing to `main` deploys it to GitHub Pages.
 
 The build fails if a sign breaks the convention: a `<script>` tag, a link that is not an absolute URL, a query string on a sign address, a piece that the entrance does not link to, or a slug with anything other than lowercase ASCII letters and digits.
+
+## Cite
+
+Lee, Seunghun. (2026). *Ganpan: signage for AI agents* (convention, draft v0.1). Zenodo. <https://doi.org/10.5281/zenodo.22849147>
+
+That DOI always resolves to the latest version. Version 0.1 alone is <https://doi.org/10.5281/zenodo.22849148>.
 
 ## Contact
 

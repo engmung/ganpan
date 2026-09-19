@@ -6,7 +6,7 @@ Status: draft. It has not been validated in the field. The rules come from proto
 
 Author: Seunghun Lee (이승훈) · Korean version: <{{base}}/ko/spec>
 
-License: CC BY 4.0 (<https://creativecommons.org/licenses/by/4.0/>). Putting up a sign that follows this convention needs no license and no credit.
+DOI: <https://doi.org/10.5281/zenodo.22849147> (all versions) · License: CC BY 4.0 (<https://creativecommons.org/licenses/by/4.0/>). Putting up a sign that follows this convention needs no license and no credit.
 
 ## 1. What it is
 

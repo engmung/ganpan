@@ -8,6 +8,7 @@ authors:
   - family-names: Lee
     given-names: Seunghun
     alias: engmung
+doi: 10.5281/zenodo.22849147
 repository-code: "https://github.com/engmung/ganpan"
 url: "https://ganpan.org"
 abstract: >-

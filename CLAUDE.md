@@ -89,6 +89,6 @@ private/           비공개 메모, 글 초안 (gitignore)
    - 방침: 이 저장소에서 정적 HTML로 만들어 테스트한 뒤, Patternflow 저장소에는 `web/public/ganpan/` 복사 + rewrite(또는 route handler) 한 개짜리 작은 PR로 넣는다. 그 저장소 안에서 개발하지 않는다.
    - 내용의 출처는 그 저장소의 README · BUILD_GUIDE.md · PATTERN_GUIDE.md · `hardware/bom/bom_v3.9.csv`. 전원은 `J4` 스크루 터미널뿐이다(USB-C를 전원으로 서술 금지 — 그 저장소의 hard rule).
 4. 글 초안의 대괄호 사실관계 채우기 → 마지막 링크 자리 채우기 → 공개
-5. 공개 절차: GitHub Release(v0.1) → Zenodo DOI → Wayback Machine 스냅샷. 기존 BYOA 저장소는 수정하지 말고 README 상단에 Ganpan 링크 한 줄만 추가
+5. 공개 절차: ~~GitHub Release(v0.1) → Zenodo DOI~~ — 완료 (2026-09-20 KST, Zenodo 기록상 날짜는 UTC 기준 2026-09-19). 대표 DOI 10.5281/zenodo.22849147 (항상 최신 버전), v0.1 은 10.5281/zenodo.22849148. 새 GitHub Release를 만들면 Zenodo가 새 버전으로 자동 등록한다(`.zenodo.json` 의 version 을 먼저 올릴 것). 공개된 버전의 파일은 고칠 수 없고 메타데이터만 Zenodo에서 편집 가능. 남은 것: Wayback Machine 스냅샷. 기존 BYOA 저장소는 수정하지 말고 README 상단에 Ganpan 링크 한 줄만 추가
 6. ~~공개할 연락 경로, robots.txt 의 `ai-train` 값~~ — 2026-09-20 결정: 연락은 GitHub 이슈(https://github.com/engmung/ganpan/issues), 이메일은 공개하지 않는다. `ai-train=yes`. 나중에 메일 주소가 필요하면 Cloudflare Email Routing으로 `hello@ganpan.org` → 개인 메일 전달(무료, DNS가 이미 Cloudflare).
    - ~~규약 라이선스~~ — 2026-09-20 결정: 글(SPEC·site·docs) CC BY 4.0, 코드(tools) MIT, `template/` CC0. `LICENSE.md` 참고. 규약을 따라 간판을 다는 데에는 허락도 출처 표시도 필요 없다.
