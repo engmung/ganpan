@@ -258,11 +258,23 @@ function buildSign(srcDir, urlPath) {
   // 같은 입구를 <dir>.html 로도 낸다. 디렉터리만 있으면 정적 호스트는 /ganpan 을 /ganpan/ 로
   // 301 시킨다(GitHub Pages에서 확인, 2026-09-20). 인쇄되는 주소가 리다이렉트 없이 열리게 하려는 것.
   write(`${urlPath}.html`, out);
-  const entranceBytes = Buffer.byteLength(entrance.body);
-  if (entranceBytes > config.limits.entranceBytes)
-    warnings.push(`${rel(entranceFile)}: 입구가 ${entranceBytes}B — 입구는 가벼운 인덱스여야 한다 (기준 ${config.limits.entranceBytes}B)`);
+  // 크기는 글자 수로 센다(바이트로 세면 한글 간판이 세 배 빨리 걸린다).
+  const entranceChars = [...entrance.body].length;
+  if (entranceChars > config.limits.entranceChars)
+    warnings.push(`${rel(entranceFile)}: 입구가 ${entranceChars}자. 입구는 가벼운 인덱스여야 한다 (기준 ${config.limits.entranceChars}자)`);
 
   const pieces = fs.readdirSync(srcDir).filter((f) => f.endsWith(".md") && f !== "index.md");
+
+  // 입구 위쪽에 조각 주소 전부를 담은 코드 블록 하나가 있어야 한다(SPEC 5.1, 5.3).
+  // ChatGPT는 손님이 주소를 보내야 조각을 연다. 블록을 통째로 복사해 한 번 보내면 전부 열린다.
+  if (pieces.length) {
+    const urlsNeeded = pieces.map((f) => `${sign.url}/${f.slice(0, -3)}`);
+    const blocks = [...entrance.body.matchAll(/^```[^\n]*\n([\s\S]*?)^```/gm)];
+    const block = blocks.find((b) => urlsNeeded.every((u) => b[1].split("\n").includes(u)));
+    if (!block) errors.push(`${rel(entranceFile)}: 조각 주소 전부를 한 줄씩 담은 코드 블록이 없다`);
+    else if ([...entrance.body.slice(0, block.index)].length > config.limits.addressBlockWithinChars)
+      warnings.push(`${rel(entranceFile)}: 주소 블록이 너무 아래에 있다. 입구 맨 위 가까이에 둔다 (기준 ${config.limits.addressBlockWithinChars}자 이내)`);
+  }
   for (const f of pieces) {
     const slug = f.slice(0, -3);
     const file = path.join(srcDir, f);
@@ -272,9 +284,9 @@ function buildSign(srcDir, urlPath) {
     if (!page.meta.title) errors.push(`${rel(file)}: front matter에 title 필요`);
     if (!entrance.body.includes(pieceUrl))
       errors.push(`${rel(file)}: 입구에 ${pieceUrl} 링크가 없다 (모든 조각은 입구에서 1홉)`);
-    const bytes = Buffer.byteLength(page.body);
-    if (bytes > config.limits.pieceBytes)
-      warnings.push(`${rel(file)}: 조각이 ${bytes}B — 긴 페이지는 잘릴 수 있다 (기준 ${config.limits.pieceBytes}B)`);
+    const chars = [...page.body].length;
+    if (chars > config.limits.pieceChars)
+      warnings.push(`${rel(file)}: 조각이 ${chars}자. 긴 페이지는 잘릴 수 있으니 나눈다 (기준 ${config.limits.pieceChars}자)`);
     const html = signPage(sign, "piece", page, pieceUrl, `${pieceUrl}.md`);
     write(`${urlPath}/${slug}.md`, signMarkdown(sign, "piece", page));
     checkHtml(rel(file), html);

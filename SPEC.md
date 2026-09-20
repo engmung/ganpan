@@ -69,12 +69,17 @@ AI vendors are moving toward ignoring instructions found inside fetched pages. R
 
 ### 5.1 What goes in the entrance
 
-- What this place is and who the owner is, in a few sentences
-- The list of pieces, with each piece's absolute URL and one line on which questions it answers. All piece addresses also appear together in one code block (see 5.3)
-- A short factual note on how AI apps open this sign (see 5.3)
-- What guests often ask, and which piece has the answer (descriptive affordances)
-- The boundary statement (principle 4)
-- The date of the last update
+In this order:
+
+1. The title and one sentence saying what this is and who the owner is.
+2. One or two sentences saying that AI apps open an address the guest sends, followed by every piece address in one code block, one per line (see 5.3).
+3. The owner's request, if there is one (see 5.3).
+4. The pieces, one line each: name, absolute URL, and the questions it answers.
+5. Contact, and an owner's pick if there is one.
+
+The boundary statement (principle 4), the owner and the date of the last update are in the same footer on every page.
+
+The entrance stays under about 3,000 characters. History, background and explanations of the convention go in pieces. A piece stays under about 8,000 characters, and a longer topic is split.
 
 ### 5.2 What goes in a piece
 
@@ -90,8 +95,8 @@ Changing information stays at one address (`/ganpan/today`) and the content is r
 - Links between pieces are absolute URLs. Some AIs only open addresses that have appeared in the conversation: in the user's message, in a search result, or in a page already read. They refuse an address the AI put together by itself.
 - Writing the address as visible text, as well as in the link attribute, is recommended in case a reading tool keeps only the text of a page. This has not been verified.
 - Every piece is linked directly from the entrance.
-- Some apps open a piece only when the guest sends its address. In the September 2026 tests, Claude and Gemini opened piece addresses found on the entrance by themselves. ChatGPT opened a piece only after the guest sent that piece's full address, and it read several addresses sent together in one message. For that reason the entrance lists all the piece addresses in one code block, one per line. Chat apps show a code block with a copy button, so a guest can copy the block, send it once, and have the whole sign open. The entrance describes this as a fact about how the sign works, where people can read it too.
-- The entrance may include one request from the owner to the guest's AI, marked as such: a sentence asking the AI to show those addresses together in a code block so they are easy to copy. It is treated like an owner's pick (principle 1). People can see it, it is attributed to the owner, it gives its reason, it only helps the guest do what they came to do, and the AI is free to ignore it. It gives the AI no role and does not steer any recommendation. When the author checked on 20 September 2026, the apps went along with the request and did not become guarded. That was one check by one person and is not a compatibility result.
+- Some apps open a piece only when the guest sends its address. In the September 2026 tests, Claude and Gemini opened piece addresses found on the entrance by themselves. ChatGPT opened a piece only after the guest sent that piece's full address, and it read several addresses sent together in one message. For that reason the entrance lists all the piece addresses in one code block, one per line, near the top. Chat apps show a code block with a copy button, so a guest can copy the block, send it once, and have the whole sign open. An AI that later fails to open a piece also knows which address to hand back. The entrance describes this as a fact about how the sign works, where people can read it too.
+- The entrance may include one request from the owner to the guest's AI, marked as such: if an address on the sign does not open, show it to the guest in a code block and ask them to send it back as a message. It is treated like an owner's pick (principle 1). People can see it, it is attributed to the owner, it gives its reason, it only helps the guest do what they came to do, and the AI is free to ignore it. It gives the AI no role and does not steer any recommendation. When the author checked on 20 September 2026, the apps went along with the request and did not become guarded. That was one check by one person and is not a compatibility result.
 
 ### 5.4 Markdown copies
 
@@ -160,4 +165,5 @@ v0.1 draft, 2026-09-20.
 - After a survey of related work: Markdown copies (5.4), the host and CDN check, stable addresses (6.5, 6.6), more neighboring work (11).
 - After a second survey, on how AI apps decide which addresses to open: no query strings (3.4), a date and a fixed address for changing information (5.2), a more precise link rule (5.3), indexing and robots.txt (6.7, 6.8).
 - After the first app tests: the placard asks the guest to type the address, printed in full from `https://` (8). The entrance lists piece addresses in one copyable code block, because ChatGPT opens a piece only when the guest sends its address, and may include one attributed request from the owner (5.1, 5.3).
+- The entrance has a fixed order with the address block near the top, the owner's request covers the case where an address does not open, and sizes are limited to about 3,000 characters for the entrance and 8,000 for a piece (5.1, 5.3).
 - License set to CC BY 4.0.

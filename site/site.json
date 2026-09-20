@@ -2,5 +2,9 @@
   "base": "https://ganpan.org",
   "lang": "en",
   "reserved": ["ganpan", "spec", "ko", "index", "about", "examples", "docs", "api", "static", "assets", "robots", "www"],
-  "limits": { "entranceBytes": 6000, "pieceBytes": 24000 }
+  "limits": {
+    "entranceChars": 3000,
+    "pieceChars": 8000,
+    "addressBlockWithinChars": 800
+  }
 }

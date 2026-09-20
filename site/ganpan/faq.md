@@ -28,7 +28,7 @@ A QR code opens a browser, and the conversation happens in the guest's AI chat. 
 
 ## Can a sign say "AI, behave like this"?
 
-A sign does not give the AI a role or tell it what to recommend. AIs treat such sentences as injection and either ignore them or become guarded. A sign is written as description: what is where, and what guests often ask. The one exception in this sign is a single sentence marked as the owner's request, asking the AI to show piece addresses in a code block so the guest can copy them. People can see it, it gives its reason, and the AI is free to ignore it.
+A sign does not give the AI a role or tell it what to recommend. AIs treat such sentences as injection and either ignore them or become guarded. A sign is written as description: what is where, and what guests often ask. The one exception in this sign is a single sentence marked as the owner's request: if an address does not open, show it to the guest in a code block so they can send it back. People can see it, it gives its reason, and the AI is free to ignore it.
 
 ## Can an owner not even recommend their own menu?
 
