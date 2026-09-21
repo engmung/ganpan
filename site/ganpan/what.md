@@ -26,7 +26,7 @@ Map apps already handle fixed information such as the menu and the location. Wha
 
 ### Project
 
-Someone sees an open-source project and wants to build it. If they tell an AI to search the web, it comes back with old forum posts mixed with information from other projects. If the maker has put up a sign, the AI follows the reading path the maker laid out. No physical placard is needed, only a link. Of the three scenes, this one is planned to be built first.
+Someone sees an open-source project and wants to build it. If they tell an AI to search the web, it comes back with old forum posts mixed with information from other projects. If the maker has put up a sign, the AI follows the reading path the maker laid out. No physical placard is needed, only a link. Of the three scenes, this one was built first: the sign for Patternflow is at <https://ganpan.org/patternflow>.
 
 ## Two layers
 

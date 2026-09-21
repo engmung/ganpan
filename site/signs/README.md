@@ -1,24 +1,24 @@
-# signs/ — 호스팅 간판
+# site/signs/ — 호스팅 간판
 
-도메인이 없는 곳(임시 전시, 작은 가게)의 간판이 사는 곳. `signs/<slug>/` 가 `ganpan.org/<slug>` 로 나간다.
+도메인이 없는 곳(임시 전시, 작은 가게)의 간판이 사는 곳. `site/signs/<slug>/` 가 `ganpan.org/<slug>` 로 나간다.
 이것은 예외 경로다. 도메인이 있는 주인의 간판은 그 주인의 주소(`/ganpan`)에 달고, 여기에 모으지 않는다.
 
 ## 간판 하나의 구성
 
 ```
-signs/<slug>/
+site/signs/<slug>/
   sign.json     제목, 주인, 언어, 경계 문장, 갱신일, 상태
   index.md      입구
   <piece>.md    조각 (파일 이름이 곧 slug)
 ```
 
-`template/` 을 복사해서 시작한다. 간판은 풀 리퀘스트(또는 "Propose a hosted sign" 이슈)로 들어오고, 관리자가 하나하나 읽어 보고 합친다. 절차는 `CONTRIBUTING.md`.
+`site/template/` 을 복사해서 시작한다. 간판은 풀 리퀘스트(또는 "Propose a hosted sign" 이슈)로 들어오고, 관리자가 하나하나 읽어 보고 합친다. 절차는 `.github/CONTRIBUTING.md`. 코딩 에이전트에게 맡기려면 `docs/agent-playbook.md`.
 
 ## slug 규칙 (빌드가 검사한다)
 
 - 소문자 ASCII와 숫자만. 한글·하이픈 금지.
 - `site/site.json` 의 `reserved` 에 있는 이름은 쓸 수 없다 (`ganpan`, `spec` 등 사이트 자체의 경로).
-- 이 slug는 안내판에 인쇄되어 사진으로 읽힌다. `l`/`1`, `o`/`0` 이 들어가면 경고가 난다.
+- 이 slug는 안내판에 인쇄되고, 손님이 보고 직접 입력하기도 한다. 숫자 `0`·`1` 이 들어가거나 숫자와 `l`·`o` 가 섞이면 경고가 난다.
 
 ## sign.json
 

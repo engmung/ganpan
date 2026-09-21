@@ -4,7 +4,7 @@
 
 <!-- One or two sentences. -->
 
-## If this adds or changes a hosted sign (`signs/<slug>/`)
+## If this adds or changes a hosted sign (`site/signs/<slug>/`)
 
 - [ ] I am the owner of this place or project, or I have the owner's permission.
 - [ ] The pages describe. They give the AI no role, no orders and no requests.
@@ -16,5 +16,5 @@
 
 ## If this changes the checker (`tools/lint.mjs`)
 
-- [ ] I added an example under `tests/checker/bad/`, `good/` or `known-gaps/`.
+- [ ] I added an example under `tools/tests/checker/bad/`, `good/` or `known-gaps/`.
 - [ ] `node tools/test-checker.mjs` passes.

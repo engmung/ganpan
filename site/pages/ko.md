@@ -14,7 +14,7 @@ AI를 위한 간판 · Signage for AI agents
 
 ## 어떻게
 
-공간·사물·프로젝트의 주인이 손님의 AI가 읽을 수 있는 페이지를 자기 주소의 `/ganpan` 에 내건다. 손님은 평소 쓰는 AI의 채팅창에 그 주소를 입력하고 대화를 시작한다. 주인은 AI를 만들지 않는다.
+공간·사물·프로젝트의 주인이 손님의 AI가 읽을 수 있는 페이지를 자기 주소의 `/ganpan` 에 내건다. 손님은 안내판의 QR을 찍거나 링크를 눌러 간판의 시작 페이지를 연다. 거기서 "프롬프트 복사"를 누르고, 평소 쓰는 AI 앱에 붙여넣는다. 손님의 AI가 그 페이지들을 읽고 손님의 언어로 답한다. 주인은 AI를 만들지 않는다.
 
 > 상태: 초안 v0.1. 현장 검증 전.
 
@@ -28,6 +28,8 @@ AI를 위한 간판 · Signage for AI agents
 
 - 규약 전문(한국어판): <{{base}}/ko/spec> · 정본(영어): <{{base}}/spec>
 - 이 사이트의 간판(입구): <{{base}}/ganpan>
+- 간판 다는 법(영어): <{{base}}/ganpan/make>
+- 지금 걸려 있는 다른 간판, Patternflow 프로젝트: <{{base}}/patternflow>
 - 2026년 3월의 이전 기록(BYOA): <https://github.com/engmung/BYOA>
 - 소스와 연락: <https://github.com/engmung/ganpan> (이슈로 남기면 된다)
 

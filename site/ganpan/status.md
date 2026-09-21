@@ -4,7 +4,7 @@ summary: What has been confirmed about Ganpan, what has not, and how the idea ca
 ---
 # Where Ganpan stands
 
-Ganpan is a convention in which an owner puts up pages for a guest's AI to read (a sign) at the owner's own address. This piece describes the state of the convention as of 20 September 2026.
+Ganpan is a convention in which an owner puts up pages for a guest's AI to read (a sign) at the owner's own address. This piece describes the state of the convention as of 22 September 2026.
 
 ## Summary
 
@@ -41,4 +41,4 @@ Within the range surveyed, no earlier deployed case was found in which a venue o
 
 ## Next
 
-The next sign is planned for Patternflow, an open-source LED synthesizer project, followed by a bar and then a temporary exhibition. When this piece was written, none of those signs was up.
+The first sign for another project is up: Patternflow, an open-source LED synthesizer, hosted at <https://ganpan.org/patternflow> since 20 September 2026. It is planned to move to the project's own address. After it come a bar and then a temporary exhibition. Neither of those is up.

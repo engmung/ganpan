@@ -8,13 +8,18 @@ But building one more chatbot is a chore for you, and using one more chatbot is 
 
 So do the simple thing: make their AI the expert. The AI they already use every day becomes the expert on your project.
 
-## How
+## How it works
 
-You put up a few plain pages about your project, your shop or your exhibition, at `/ganpan` on your own address. That set of pages is a sign. A guest opens the sign's start page, copies one short message, and pastes it into the AI app they already use (ChatGPT, Gemini, Claude). Their AI reads your pages and answers from them, in the guest's language and at the guest's level. You build no chatbot and you pay for no inference.
+1. You put up a few plain pages about your project, your shop or your exhibition, at `/ganpan` on your own address. That set of pages is a sign.
+2. A guest scans the QR code on your placard, or follows a link, and lands on the sign's start page.
+3. They press "Copy prompt" and paste it into the AI app they already use (ChatGPT, Gemini, Claude).
+4. Their AI reads your pages and answers from them, in the guest's language and at the guest's level.
 
-*Ganpan* (간판) is the Korean word for a shop sign.
+You build no chatbot and you pay for no inference. The guest copies and pastes because AI apps open the addresses a person sends with their own hands. In the tests they did not open an address that arrived inside a photo.
 
-> Status: draft v0.1. It has not been validated in the field.
+*Ganpan* (간판) is the Korean word for a shop sign. 한국어 소개는 <https://ganpan.org/ko>.
+
+> Status: draft v0.1. The author tried it in the ChatGPT, Claude and Gemini apps on a phone in September 2026. It has not been validated in the field.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22849147.svg)](https://doi.org/10.5281/zenodo.22849147)
 
@@ -26,44 +31,60 @@ Open the start page, press "Copy prompt", and paste it into your AI app:
 https://ganpan.org/ganpan/start
 ```
 
-Or type the sign's address into your AI chat and ask what Ganpan is, in any language:
+Signs that are up:
 
-```
-https://ganpan.org/ganpan
+- Ganpan itself: <https://ganpan.org/ganpan> · [start page](https://ganpan.org/ganpan/start) · [placard](https://ganpan.org/ganpan/placard)
+- Patternflow, an open-source LED synthesizer: <https://ganpan.org/patternflow> · [start page](https://ganpan.org/patternflow/start) · [placard](https://ganpan.org/patternflow/placard)
+
+## Make a sign
+
+The authoring guide is at <https://ganpan.org/ganpan/make>. A sign is a handful of Markdown files. Copy [site/template/](site/template/), write the entrance and the pieces, and build:
+
+```bash
+node tools/build.mjs
 ```
 
-AI apps open an address the user sends as text. They do not open one that arrives inside a photo.
+The output in `dist/` is static HTML with no scripts, and it goes on any static host. There are no dependencies. Node 20 or later is enough. For each sign the build also makes:
+
+- a start page with the copy button. The first message comes from a fixed template, and what the guest copies is exactly what the page shows
+- a QR code of the start page, `start-qr.png` and `start-qr.svg`
+- a placard to print
+
+Your own coding agent (Claude Code, Cursor, Codex) can write the sign for you. Point it at [docs/agent-playbook.md](docs/agent-playbook.md): it interviews you, proposes the pieces, writes them, runs the checks and prepares the pull request. In Claude Code the command is `/new-sign`.
+
+A place with no domain can have its sign hosted at `ganpan.org/<slug>`. See [Contributing](#contributing).
+
+The QR generator also works on its own, with no login and no short link in between:
+
+```bash
+node tools/qr.mjs "https://example.com/ganpan/start" qr.png
+```
 
 ## Read
 
-- The convention: [SPEC.md](SPEC.md) (English, canonical) · [SPEC.ko.md](SPEC.ko.md) (한국어)
-- The site: <https://ganpan.org>
+- The convention: [docs/SPEC.md](docs/SPEC.md) (English, canonical) · [docs/SPEC.ko.md](docs/SPEC.ko.md) (한국어) · on the site at <https://ganpan.org/spec>
 - Background, decisions and survey notes with sources (Korean): [docs/CONTEXT.md](docs/CONTEXT.md)
 - Test log (Korean): [docs/test-log.md](docs/test-log.md)
-- A placard to print, with its QR code: <https://ganpan.org/ganpan/placard>
 - The earlier record of this idea, from March 2026: [engmung/BYOA](https://github.com/engmung/BYOA)
 
 ## This repository
 
-This is the source of ganpan.org. The site has its own sign up: `site/ganpan/` is published at `ganpan.org/ganpan`.
+This is the source of ganpan.org. Pushing to `main` builds it and deploys it to GitHub Pages.
 
 ```
-SPEC.md          the convention (English), SPEC.ko.md in Korean
-site/            ganpan.org: pages for people, and the sign for Ganpan itself
-signs/<slug>/    hosted signs for places with no domain, published at ganpan.org/<slug>
-template/        a starting point for a new sign (Korean)
-tools/           the build (Markdown to script-free static HTML, start pages, convention checks), the checker for owner-written text, a QR code generator, and a local server
-tests/checker/   examples the checker must catch, must pass, and is known to miss
-docs/            context, test log, placard sample
+docs/    the convention, background, test log, the playbook for agents
+site/    what ganpan.org serves: pages for people, the sign for Ganpan itself (ganpan/),
+         hosted signs (signs/<slug>/), and the starter template (template/)
+tools/   the build, the checker for owner-written text, the QR generator, their tests, a local server
 ```
-
-```bash
-npm run build
-```
-
-There are no dependencies. Node 20 or later is enough. For each sign the build also makes a QR code of its start page (`start-qr.svg`, `start-qr.png`) and a placard to print (`placard`). To make a QR code for any address: `node tools/qr.mjs "https://example.com/ganpan/start" qr.png`. The output goes to `dist/` and can be put on any static host. Pushing to `main` deploys it to GitHub Pages.
 
 The build fails if a sign breaks the convention: a `<script>` tag, a link that is not an absolute URL, a query string on a sign address, a piece that the entrance does not link to, a slug with anything other than lowercase ASCII letters and digits, or characters a person cannot see. Phrases aimed at the AI are printed as notes for the reviewer. A person reads every hosted sign before it goes up.
+
+## Contributing
+
+There is no upload service. Reports of how a sign behaved in an AI app, proposals for hosted signs, and bad texts that get past the checker all come in through issues and pull requests, and the maintainer reviews them by hand. See [CONTRIBUTING.md](.github/CONTRIBUTING.md).
+
+Contact: open an issue at <https://github.com/engmung/ganpan/issues>.
 
 ## Cite
 
@@ -71,14 +92,8 @@ Lee, Seunghun. (2026). *Ganpan: signage for AI agents* (convention, draft v0.1).
 
 That DOI always resolves to the latest version. Version 0.1 alone is <https://doi.org/10.5281/zenodo.22849148>.
 
-## Contributing
-
-There is no upload service. Reports of how a sign behaved in an AI app, proposals for hosted signs, and bad texts that get past the checker all come in through issues and pull requests, and the maintainer reviews them by hand. See [CONTRIBUTING.md](CONTRIBUTING.md). To have your own AI agent write a sign from your material, point it at [docs/agent-playbook.md](docs/agent-playbook.md).
-
-Contact: open an issue at <https://github.com/engmung/ganpan/issues>.
-
 ## License
 
-Text (the convention, the site, the docs) is CC BY 4.0. Code in `tools/` is MIT. The starter files in `template/` are CC0. The licenses do not cover the name. Details are in [LICENSE.md](LICENSE.md). Putting up a sign that follows the convention needs no license and no credit.
+Text (the convention, the site, the docs) is CC BY 4.0. Code in `tools/` is MIT. The starter files in `site/template/` are CC0. The licenses do not cover the name. Details are in [LICENSE.md](LICENSE.md). Putting up a sign that follows the convention needs no license and no credit.
 
 Author: Seunghun Lee (이승훈)

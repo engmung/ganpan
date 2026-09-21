@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        A person reads every sign before it goes up. The patterns in `tools/lint.mjs` only print notes that point the reviewer at a line, and rewording gets past them. Examples they miss are collected in `tests/checker/known-gaps/`. A pull request that adds yours there, or a pattern that catches it, is welcome too.
+        A person reads every sign before it goes up. The patterns in `tools/lint.mjs` only print notes that point the reviewer at a line, and rewording gets past them. Examples they miss are collected in `tools/tests/checker/known-gaps/`. A pull request that adds yours there, or a pattern that catches it, is welcome too.
   - type: textarea
     id: text
     attributes:

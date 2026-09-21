@@ -14,7 +14,7 @@ So do the simple thing: make their AI the expert. The AI they already use every 
 
 ## How
 
-The owner of a place, an object, or a project puts up pages a guest's AI can read, at `/ganpan` on the owner's own address. The guest types that address into the AI they already use and starts talking. The owner does not build an AI.
+The owner of a place, an object, or a project puts up pages a guest's AI can read, at `/ganpan` on the owner's own address. A guest scans the QR code on the placard, or follows a link, and lands on the sign's start page. They press "Copy prompt" and paste it into the AI app they already use. Their AI reads the pages and answers from them, in the guest's language. The owner does not build an AI.
 
 > Status: draft v0.1. It has not been validated in the field.
 
@@ -28,6 +28,8 @@ This site has its own sign up. Open its start page, press "Copy prompt", and pas
 
 - The convention: <{{base}}/spec>
 - This site's sign (entrance): <{{base}}/ganpan>
+- How to put up a sign: <{{base}}/ganpan/make>
+- Another sign that is up, for the Patternflow project: <{{base}}/patternflow>
 - The earlier record from March 2026 (BYOA): <https://github.com/engmung/BYOA>
 - Source and contact: <https://github.com/engmung/ganpan> (open an issue)
 

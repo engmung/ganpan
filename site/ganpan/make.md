@@ -14,7 +14,7 @@ This is the authoring guide for a Ganpan sign, a small set of pages an owner put
 - An address printed on a placard avoids look-alike characters (`l` and `1`, `o` and `0`).
 - Changing information keeps one fixed address, such as `/ganpan/today`.
 - `/ganpan/start` is the start page (section 4). It is not used as a piece slug.
-- Places with no domain: hosting at `ganpan.org/<slug>` is planned. The intake process is not published yet.
+- Places with no domain: a sign can be hosted at `ganpan.org/<slug>`. Proposals come in as an issue or a pull request at <https://github.com/engmung/ganpan>.
 
 ## 2. The entrance, in this order
 

@@ -52,7 +52,7 @@ HTML that shows its content without JavaScript is the baseline. A Markdown copy 
 
 ## What if there is no domain?
 
-Hosting at `ganpan.org/<slug>` is planned. It is an exception, and neither the intake process nor the way to confirm the real owner has been decided.
+A sign can be hosted at `ganpan.org/<slug>`. It is the exception, for a temporary exhibition or a small shop. A proposal comes in as an issue or a pull request at <https://github.com/engmung/ganpan>, and the maintainer reads every sign before it goes up. There is no upload service. The maintainer asks whether the sender is the owner or acts with the owner's permission. There is no formal proof of ownership.
 
 ## What does it cost?
 

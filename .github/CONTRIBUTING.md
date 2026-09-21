@@ -10,7 +10,7 @@ Ganpan is a convention, a small build tool, and the site at ganpan.org. There is
 
 **Bad texts that the checker lets through.** See "The checker" below.
 
-**Corrections to the convention.** `SPEC.md` is the canonical text and `SPEC.ko.md` follows it. If a rule is wrong or unclear, open an issue and say what you saw.
+**Corrections to the convention.** `docs/SPEC.md` is the canonical text and `docs/SPEC.ko.md` follows it. If a rule is wrong or unclear, open an issue and say what you saw.
 
 ## Proposing a hosted sign
 
@@ -19,9 +19,9 @@ A sign belongs at the owner's own address, `yourdomain/ganpan`. You need no perm
 Hosting at `ganpan.org/<slug>` is the exception, for a place with no domain, such as a temporary exhibition or a small shop.
 
 - If you are not comfortable with pull requests, use the "Propose a hosted sign" issue form and attach the material.
-- Otherwise send a pull request that adds `signs/<slug>/`. Copy `template/` to start. `site/ganpan/make.md` is the authoring guide, and `signs/README.md` explains the files.
+- Otherwise send a pull request that adds `site/signs/<slug>/`. Copy `site/template/` to start. `site/ganpan/make.md` is the authoring guide, and `site/signs/README.md` explains the files.
 
-**Let your own AI do the writing.** Open a clone of this repository with a coding agent (Claude Code, Cursor, Codex) and ask it to make a sign from your material. `AGENTS.md` sends it to `docs/agent-playbook.md`: it interviews you, proposes the pieces, writes them, runs the build, shows you the start prompt your guests will send, answers the eight review questions with the lines they rest on, and prepares the pull request. In Claude Code the command is `/new-sign`. If you only have a chat AI, the last section of the playbook has a prompt to paste into it, and the result goes into the issue form.
+**Let your own AI do the writing.** Open a clone of this repository with a coding agent (Claude Code, Cursor, Codex) and ask it to make a sign by following `docs/agent-playbook.md`. It interviews you, proposes the pieces, writes them, runs the build, shows you the start prompt your guests will send, answers the eight review questions with the lines they rest on, and prepares the pull request. In Claude Code the command is `/new-sign`. If you only have a chat AI, the last section of the playbook has a prompt to paste into it, and the result goes into the issue form.
 
 Every sign is read by the maintainer before it goes up. The standard is the next section.
 
@@ -40,7 +40,7 @@ A person reads every sign before it is merged. These are the questions, and a si
 7. Is the boundary statement true: are these pages all the owner has published?
 8. Are the facts checkable against the material the owner provided?
 
-`tests/checker/bad/` and `tests/checker/good/` hold examples of texts on each side of the line. `tests/checker/known-gaps/` holds texts that are over the line and that no pattern catches, which is why a person reads.
+`tools/tests/checker/bad/` and `tools/tests/checker/good/` hold examples of texts on each side of the line. `tools/tests/checker/known-gaps/` holds texts that are over the line and that no pattern catches, which is why a person reads.
 
 ## The start prompt is generated
 
@@ -58,7 +58,7 @@ The build (`tools/build.mjs`, `tools/lint.mjs`) stops only on things a machine c
 
 It also looks for a few phrases aimed at the AI ("ignore previous instructions", a role, "always recommend", "do not tell the guest"). Those do not stop the build. They are printed as notes for the reviewer, because rewording gets past any such pattern. Their use is to point at one line in a long sign that a person might skim over.
 
-If you can write a bad text that produces no note, add it to `tests/checker/known-gaps/`, or improve a pattern and move the example to `bad/`. A note on a harmless text is a bug too: add it to `good/`. Run `node tools/test-checker.mjs`.
+If you can write a bad text that produces no note, add it to `tools/tests/checker/known-gaps/`, or improve a pattern and move the example to `bad/`. A note on a harmless text is a bug too: add it to `good/`. Run `node tools/test-checker.mjs`.
 
 ## Building
 
