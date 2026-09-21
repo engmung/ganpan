@@ -6,6 +6,14 @@ summary: Owners put up pages a guest's AI can read. Guests bring their own AI. T
 
 Signage for AI agents · AI를 위한 간판
 
+Wouldn't it be nice if your project had an expert AI chatbot that explains it accurately?
+
+But building one more chatbot is a chore for you, and using one more chatbot is a chore for everyone else.
+
+So do the simple thing: make their AI the expert. The AI they already use every day becomes the expert on your project.
+
+## How
+
 The owner of a place, an object, or a project puts up pages a guest's AI can read, at `/ganpan` on the owner's own address. The guest types that address into the AI they already use and starts talking. The owner does not build an AI.
 
 > Status: draft v0.1. It has not been validated in the field.

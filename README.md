@@ -2,7 +2,15 @@
 
 Signage for AI agents · AI를 위한 간판
 
-The owner of a place, an object, or a project puts up pages a guest's AI can read, at `/ganpan` on the owner's own address. The guest types that address into the AI they already use (ChatGPT, Gemini, Claude) and starts talking. The owner does not build an AI.
+Wouldn't it be nice if your project had an expert AI chatbot that explains it accurately?
+
+But building one more chatbot is a chore for you, and using one more chatbot is a chore for everyone else.
+
+So do the simple thing: make their AI the expert. The AI they already use every day becomes the expert on your project.
+
+## How
+
+You put up a few plain pages about your project, your shop or your exhibition, at `/ganpan` on your own address. That set of pages is a sign. A guest types the address into the AI they already use (ChatGPT, Gemini, Claude) and starts talking. Their AI reads your pages and answers from them, in the guest's language and at the guest's level. You build no chatbot and you pay for no inference.
 
 *Ganpan* (간판) is the Korean word for a shop sign.
 
