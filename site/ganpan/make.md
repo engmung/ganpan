@@ -28,7 +28,7 @@ The boundary statement, the owner and the update date go in the same footer on e
 
 The entrance stays under about 3,000 characters. It has no history, no background and no explanation of the convention. Those belong in pieces.
 
-Why the code block is at the top: in the September 2026 tests, ChatGPT opened a piece only after the guest sent its address, and it read several addresses sent in one message. Chat apps show a code block with a copy button. A guest who copies the block and sends it once has the whole sign open. This serves guests who typed the entrance address. Guests who come through the start page already send every address in their first message.
+Why the code block is at the top: in the September 2026 tests, ChatGPT opened a piece only after the guest sent its address, and it read several addresses sent in one message. Chat apps show a code block with a copy button, so a guest who typed the entrance address can copy the block and send it once. Guests who come through the start page already send every address in their first message.
 
 ## 3. A piece
 
@@ -85,9 +85,9 @@ Used:      Owner's pick: this week, the yellowtail. Less sweet cocktails are und
 
 ## 8. The placard
 
-The wording is "Scan the code, copy the text, and paste it into your AI chat." The QR code holds the address of the start page, so the wording and the prompt can change later and a printed code still works. The build makes the QR code itself (`start-qr.png`, `start-qr.svg`) and a plain placard to print (`placard`), so no online QR generator is needed. Below it is the fallback, "Or type this address into your AI chat", with the entrance address as text, in full from `https://`, short enough to type. Gemini opened an address only when it included the scheme.
+The wording is "Scan the code, copy the text, and paste it into your AI chat." The QR code holds the address of the start page, so a printed code still works after the wording or the prompt changes. The build makes the code (`start-qr.png`, `start-qr.svg`) and a plain placard (`placard`). No online QR generator is needed. Below it is the fallback, "Or type this address into your AI chat", with the entrance address as text, in full from `https://`, short enough to type. Gemini opened an address only when it included the scheme.
 
-The guest hands the text over themselves because a photo of the placard does not open the sign. In the September 2026 tests the apps read the address in the picture and did not open it, and they tended to treat text in an image as a possible injection and become guarded. When the guest typed the same address, they opened it and the tone was friendly.
+The guest hands the text over themselves because a photo of the placard does not open the sign. In the September 2026 tests the apps read the address in the picture and did not open it, and tended to treat text in an image as a possible injection. When the guest typed the same address, they opened it.
 
 A project with no physical space needs one line and a link to the start page: "Ask your AI about this."
 
