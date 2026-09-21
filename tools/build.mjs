@@ -7,7 +7,7 @@
 //
 // 하는 일은 네 가지다.
 //   1. 마크다운(제한된 부분집합)을 자바스크립트 없는 정적 HTML로 바꾼다.
-//   2. 간판(site/ganpan, signs/<slug>)을 입구 + 조각으로 내보낸다.
+//   2. 간판(site/ganpan, site/signs/<slug>)을 입구 + 조각으로 내보낸다.
 //   3. 규약이 요구하는 것을 검사하고, 어기면 빌드를 실패시킨다.
 //   4. 간판마다 시작 페이지와 시작 프롬프트를 만든다. 주인이 쓴 글은 tools/lint.mjs 로 검사한다.
 //
@@ -509,9 +509,9 @@ const NAV = {
 };
 const humanPages = [
   { src: "site/pages/index.md", out: "index", url: `${BASE}/`, lang: "en" },
-  { src: "SPEC.md", out: "spec", url: `${BASE}/spec`, lang: "en" },
+  { src: "docs/SPEC.md", out: "spec", url: `${BASE}/spec`, lang: "en" },
   { src: "site/pages/ko.md", out: "ko/index", url: `${BASE}/ko`, lang: "ko" },
-  { src: "SPEC.ko.md", out: "ko/spec", url: `${BASE}/ko/spec`, lang: "ko" },
+  { src: "docs/SPEC.ko.md", out: "ko/spec", url: `${BASE}/ko/spec`, lang: "ko" },
 ];
 for (const p of humanPages) {
   const page = readPage(path.join(ROOT, p.src), { base: BASE, sign: `${BASE}/ganpan` });
@@ -535,18 +535,18 @@ for (const p of humanPages) {
 // 2. Ganpan 자신의 간판
 buildSign(path.join(ROOT, "site", "ganpan"), "ganpan");
 
-// 3. 호스팅 간판: signs/<slug>/ → ganpan.org/<slug>
-const signsDir = path.join(ROOT, "signs");
+// 3. 호스팅 간판: site/signs/<slug>/ → ganpan.org/<slug>
+const signsDir = path.join(ROOT, "site", "signs");
 for (const entry of fs.existsSync(signsDir) ? fs.readdirSync(signsDir, { withFileTypes: true }) : []) {
   if (!entry.isDirectory()) continue;
   const slug = entry.name;
-  if (!SLUG.test(slug)) errors.push(`signs/${slug}: slug는 소문자 ASCII와 숫자만 (하이픈·한글 금지)`);
-  if (config.reserved.includes(slug)) errors.push(`signs/${slug}: 예약된 이름이다 (site.json reserved)`);
-  // 이 slug는 안내판에 인쇄되어 사진으로 읽힌다. 헷갈리는 글자를 경고한다.
+  if (!SLUG.test(slug)) errors.push(`site/signs/${slug}: slug는 소문자 ASCII와 숫자만 (하이픈·한글 금지)`);
+  if (config.reserved.includes(slug)) errors.push(`site/signs/${slug}: 예약된 이름이다 (site.json reserved)`);
+  // 이 slug는 안내판에 인쇄되고, 손님이 보고 손으로 입력하기도 한다. 헷갈리는 글자를 경고한다.
   // 순수한 단어(hongdae)는 문맥으로 읽히므로 넘어가고, 숫자가 섞일 때만 본다:
   // 0·1 자체, 또는 숫자와 l·o 가 함께 있는 경우.
   if (/[01]/.test(slug) || (/\d/.test(slug) && /[lo]/.test(slug)))
-    warnings.push(`signs/${slug}: 안내판에 인쇄될 주소에 헷갈리는 글자(l/1, o/0)가 있다`);
+    warnings.push(`site/signs/${slug}: 안내판에 인쇄될 주소에 헷갈리는 글자(l/1, o/0)가 있다`);
   buildSign(path.join(signsDir, slug), slug);
 }
 
