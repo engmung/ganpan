@@ -35,7 +35,7 @@ private/                             비공개 메모, 글 초안 (gitignore)
 ```
 
 - **루트는 비워 둔다(2026-09-22 결정).** GitHub에서 저장소를 열면 README가 바로 보여야 한다. 루트에 보이는 것은 `docs/` `site/` `tools/` `LICENSE.md` `README.md` 다섯 개와 점으로 시작하는 설정뿐이다. 새 파일·폴더를 루트에 만들지 않는다. 루트에 있어야만 동작하는 것만 남겼다: `LICENSE.md`(GitHub의 라이선스 표시), `.zenodo.json`, `.github/`, `.gitignore`. `CONTRIBUTING.md` 는 `.github/` 에 두어도 GitHub가 찾는다. `AGENTS.md` 는 루트에 없으므로 에이전트는 README의 안내를 따라 `docs/agent-playbook.md` 로 간다.
-  - 남은 정리(2026-09-22, 작성자 확인 대기): 루트의 `package.json`(`npm run` 단축 명령뿐. 문서는 이미 `node tools/…` 로 적는다), `CITATION.cff`(GitHub의 "Cite this repository" 버튼용. 인용문은 README에 있다), `.gitattributes`(줄바꿈을 LF로 고정. 빌드는 CRLF도 읽는다). 지우면 이 줄도 지운다.
+  - 같은 날 지운 것: `package.json`(`npm run` 단축 명령뿐이었다. 명령은 `node tools/…` 로 직접 친다), `CITATION.cff`(GitHub의 "Cite this repository" 버튼용이었다. 인용문은 README에 있고 Zenodo는 `.zenodo.json` 을 읽는다), `.gitattributes`(줄바꿈 LF 고정. 빌드와 시험은 CRLF도 읽는다). 다시 만들지 않는다.
 
 - 빌드: `node tools/build.mjs` (→ `dist/`). 로컬 확인: `node tools/build.mjs --base http://localhost:4173` 후 `node tools/serve.mjs`. 시험: `node tools/test-checker.mjs`, `node tools/test-qr.mjs`.
 - 간판 본문은 마크다운의 제한된 부분집합으로 쓴다(지원 문법은 `tools/build.mjs` 상단). 조각 링크는 `<{{sign}}/slug>` 형태 — 절대 URL이 되고 주소가 글자로도 보인다.
