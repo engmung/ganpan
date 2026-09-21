@@ -1,0 +1,17 @@
+# 풀 리퀘스트가 들어오면 빌드(규약 검사 포함)와 검사기 시험을 돌린다.
+# pull_request 이벤트라 포크에서 온 PR은 읽기 전용 토큰으로 돈다. pull_request_target 은 쓰지 않는다.
+name: check
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node tools/test-checker.mjs
+      - run: node tools/build.mjs

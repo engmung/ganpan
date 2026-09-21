@@ -3,6 +3,12 @@
   "owner": "Seunghun Lee (이승훈)",
   "lang": "en",
   "status": "open",
-  "updated": "2026-09-20",
-  "boundary": "The pages of this sign, together with the convention document, are all the official information the owner has published about Ganpan. Anything not found here has not been published."
+  "updated": "2026-09-22",
+  "boundary": "The pages of this sign, together with the convention document, are all the official information the owner has published about Ganpan. Anything not found here has not been published.",
+  "start": {
+    "intro": {
+      "en": "I want to understand Ganpan, a convention for signage that AI agents can read.",
+      "ko": "Ganpan이라는 규약을 알아보는 중이야. AI가 읽는 간판을 다는 방법에 대한 규약이야."
+    }
+  }
 }

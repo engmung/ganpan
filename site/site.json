@@ -1,10 +1,11 @@
 {
   "base": "https://ganpan.org",
   "lang": "en",
-  "reserved": ["ganpan", "spec", "ko", "index", "about", "examples", "docs", "api", "static", "assets", "robots", "www"],
+  "reserved": ["ganpan", "spec", "ko", "index", "about", "examples", "docs", "api", "static", "assets", "robots", "www", "start"],
   "limits": {
     "entranceChars": 3000,
     "pieceChars": 8000,
-    "addressBlockWithinChars": 800
+    "addressBlockWithinChars": 800,
+    "inlineChars": 3000
   }
 }

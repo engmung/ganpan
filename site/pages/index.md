@@ -20,11 +20,9 @@ The owner of a place, an object, or a project puts up pages a guest's AI can rea
 
 ## Try it
 
-This site has its own sign up. Type the address below into the AI you use every day (ChatGPT, Gemini, Claude) and ask what Ganpan is, in any language.
+This site has its own sign up. Open its start page, press "Copy prompt", and paste it into the AI app you use every day (ChatGPT, Gemini, Claude).
 
-```
-{{base}}/ganpan
-```
+<{{base}}/ganpan/start>
 
 ## Read
 

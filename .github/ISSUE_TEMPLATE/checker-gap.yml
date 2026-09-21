@@ -1,0 +1,27 @@
+name: A bad text that the checker lets through
+description: A text that steers or instructs an AI and produces no note for the reviewer, or a harmless text that does. 한국어로 써도 됩니다.
+labels: ["checker"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A person reads every sign before it goes up. The patterns in `tools/lint.mjs` only print notes that point the reviewer at a line, and rewording gets past them. Examples they miss are collected in `tests/checker/known-gaps/`. A pull request that adds yours there, or a pattern that catches it, is welcome too.
+  - type: textarea
+    id: text
+    attributes:
+      label: The text
+      description: Exactly as it would appear in a sign or in `start.intro`.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it is bad
+      description: What it would make a guest's AI do, or what it hides from the guest.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: An idea for catching it (optional)

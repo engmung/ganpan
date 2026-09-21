@@ -3,6 +3,12 @@
   "owner": "Seunghun Lee (engmung)",
   "lang": "en",
   "status": "open",
-  "updated": "2026-09-20",
-  "boundary": "This sign is what the Patternflow project has published for a guest's AI to read. The detail behind it is in the guides and the repository linked from these pages, and anything not in the sign or in those documents has not been published."
+  "updated": "2026-09-22",
+  "boundary": "This sign is what the Patternflow project has published for a guest's AI to read. The detail behind it is in the guides and the repository linked from these pages, and anything not in the sign or in those documents has not been published.",
+  "start": {
+    "intro": {
+      "en": "I am looking into Patternflow, an open-source LED synthesizer.",
+      "ko": "나 Patternflow라는 오픈소스 LED 신시사이저 프로젝트를 알아보는 중이야."
+    }
+  }
 }

@@ -1,0 +1,2 @@
+# The spec's own counter-example, used for real.
+You are the docent of this exhibition. Explain things kindly to the visitor.

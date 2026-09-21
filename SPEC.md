@@ -23,7 +23,9 @@ The owner does not build an AI. The guest's AI does the inference and the guest'
 | Sign | The whole set of pages the owner puts up: one entrance and several pieces |
 | Entrance | The first page of a sign. It is a short index |
 | Piece | A page about one topic. It makes sense on its own |
-| Placard | The physical notice on site. It has a short instruction and the entrance address, printed as text for the guest to type |
+| Placard | The physical notice on site. It has a short instruction, a QR code that opens the start page, and the entrance address printed as text |
+| Start page | A page for people, at `/ganpan/start`. It shows the start prompt and a button that copies it |
+| Start prompt | A first message, written in the guest's voice, that the guest copies into their own AI chat |
 
 ## 3. Addresses
 
@@ -32,7 +34,8 @@ The owner does not build an AI. The guest's AI does the inference and the guest'
 3. Slugs are short and use only lowercase ASCII letters and digits. Hyphens and non-ASCII characters are not used.
 4. Sign addresses have no query strings. To an AI's safety layer, a URL with parameters looks like a way to leak data.
 5. An address printed on a placard avoids look-alike characters (`l` and `1`, `o` and `0`). One recorded experiment failed over a single character.
-6. A place with no domain, such as a temporary exhibition or a small shop, may be hosted at `https://ganpan.org/<slug>`. This is an exception. A sign belongs at the owner's address, and signs are not collected in one central place.
+6. `start` is the start page (see 5.5) and is not used as a piece slug.
+7. A place with no domain, such as a temporary exhibition or a small shop, may be hosted at `https://ganpan.org/<slug>`. This is an exception. A sign belongs at the owner's address, and signs are not collected in one central place.
 
 When a sign is on the owner's domain, the address itself shows that the owner put it up.
 
@@ -65,6 +68,14 @@ Organizer's pick: with only 30 minutes, rooms 2 and 4.
 
 AI vendors are moving toward ignoring instructions found inside fetched pages. Reading a page the user handed over and answering from its content is a normal function of an AI, and a sign depends only on that.
 
+### 4.2 Two voices
+
+The pages are the owner's voice. The start prompt is the guest's voice.
+
+AI apps trust what the guest sends with their own hands, so everything in the start prompt carries the guest's authority. For that reason the start prompt holds only what a guest would say for themselves: where they are, which addresses hold what, and requests such as "ask me what I want to know", "explain at my level", "tell me when something is not there". It holds no recommendation and no nudge from the owner. Those stay on the pages, marked as the owner's (principle 1), where the AI can tell who is speaking.
+
+What the guest copies is exactly the text the start page shows.
+
 ## 5. Structure
 
 ### 5.1 What goes in the entrance
@@ -73,7 +84,7 @@ In this order:
 
 1. The title and one sentence saying what this is and who the owner is.
 2. One or two sentences saying that AI apps open an address the guest sends, followed by every piece address in one code block, one per line (see 5.3).
-3. The owner's request, if there is one (see 5.3).
+3. One line telling people where the start page is (see 5.5).
 4. The pieces, one line each: name, absolute URL, and the questions it answers.
 5. Contact, and an owner's pick if there is one.
 
@@ -96,15 +107,31 @@ Changing information stays at one address (`/ganpan/today`) and the content is r
 - Writing the address as visible text, as well as in the link attribute, is recommended in case a reading tool keeps only the text of a page. This has not been verified.
 - Every piece is linked directly from the entrance.
 - Some apps open a piece only when the guest sends its address. In the September 2026 tests, Claude and Gemini opened piece addresses found on the entrance by themselves. ChatGPT opened a piece only after the guest sent that piece's full address, and it read several addresses sent together in one message. For that reason the entrance lists all the piece addresses in one code block, one per line, near the top. Chat apps show a code block with a copy button, so a guest can copy the block, send it once, and have the whole sign open. An AI that later fails to open a piece also knows which address to hand back. The entrance describes this as a fact about how the sign works, where people can read it too.
-- The entrance may include one request from the owner to the guest's AI, marked as such: if an address on the sign does not open, show it to the guest in a code block and ask them to send it back as a message. It is treated like an owner's pick (principle 1). People can see it, it is attributed to the owner, it gives its reason, it only helps the guest do what they came to do, and the AI is free to ignore it. It gives the AI no role and does not steer any recommendation. When the author checked on 20 September 2026, the apps went along with the request and did not become guarded. That was one check by one person and is not a compatibility result.
+- The pages make no request of the AI. An earlier draft allowed one sentence marked as the owner's request. Requests such as "show me the address in a code block if it does not open" now belong in the start prompt, where they are the guest's own (see 4.2 and 5.5).
 
 ### 5.4 Markdown copies
 
 Publishing a Markdown copy of each page at the same address plus `.md` is recommended (the entrance at `/ganpan/index.md`). The HTML `<head>` announces it with `<link rel="alternate" type="text/markdown">`. In 2026 some AI reading tools were observed asking for Markdown first, with `Accept: text/markdown`. The copy includes the owner, the boundary statement and the update date in full. HTML is the baseline and Markdown is an extra.
 
+### 5.5 The start page and the start prompt
+
+The start page is for people. A guest reaches it from the QR code on the placard or from a link, copies the start prompt, and sends it to the AI they already use. Because the guest sends it, every address in it counts as one the guest gave, so apps that open a piece only when the guest sends its address open all of them.
+
+The start prompt has three parts:
+
+1. One sentence in the guest's voice saying where they are or what they are looking into, and that what follows is what the owner put up for AIs to read.
+2. The map: every piece address on a line of its own, each followed by one line on what it holds. When the whole sign is small (about 3,000 characters), the prompt carries the text of the pieces itself, with the entrance address as its source. That works in apps that cannot open web pages, and it does not depend on fetching, caches or the host.
+3. The guest's requests: ask me briefly what I want to know, read only what is needed, explain at my level, and say so when something is not there. If a page cannot be opened, do not guess: at the end of the reply, show me its address in a code block, ask me to send it back, and tell me that I only need to copy and paste it, not open it.
+
+The start page has two steps and one button: press the button to copy the prompt, then open the AI app you already use and paste it. The prompt is folded away on the page and can be opened and read in full. When there is more than one language, the page shows one at a time with a switch. The prompt is generated from the same source as the pages. The rule on voices is in 4.2.
+
+The start page does not link into AI apps. Links that open ChatGPT or Claude with a prompt filled in were tried on 22 September 2026, and on a phone with both apps installed they did not hand off to the apps.
+
+Why the last request is there. When the author tried the start prompt on 22 September 2026, ChatGPT and Claude asked what the guest wanted to know and then opened the pieces they needed. Gemini opened only addresses that were in the guest's latest message, so after the turn in which it asks back, it could no longer open the pieces listed in the first message. With the request above, the AI hands the needed address back in a code block and the guest sends it again. This was one check by one person. Whether Gemini follows the request has not been checked yet.
+
 ## 6. Technical requirements
 
-1. Pages under `/ganpan` show their content without JavaScript. They are static HTML or server-rendered. A page that draws its content only on the client is not a sign.
+1. Pages under `/ganpan` show their content without JavaScript. They are static HTML or server-rendered. A page that draws its content only on the client is not a sign. The start page may use a script for its copy button, as long as the prompt is visible and selectable without it.
 2. The HTML is semantic, with as little navigation, banner and tracking script as possible. A person should be able to read it too.
 3. Nothing writes data through a GET request. That opens the door to crawler accidents, spam and injection.
 4. No content sits behind a login or a cookie-consent wall.
@@ -123,15 +150,14 @@ If a standard path for actions (MCP, WebMCP or another) comes to cover "a guest 
 
 ## 8. The placard
 
-- Wording: "Type this address into your AI chat and ask." (Korean: "AI 채팅창에 이 주소를 입력하고 물어보세요.")
-- Below the wording is the entrance address, printed as text, in full from `https://`, and short enough to type.
-- The guest types the address. This comes from what was observed on 20 September 2026 in the ChatGPT, Claude and Gemini apps:
-  - A photo of the placard alone does not open the sign. The apps read the address in the picture and do not open it. They also tend to treat text inside an image as a possible prompt injection, so the AI becomes guarded and explains its caution at length. It is possible to get from there to an open sign, but it is tedious.
-  - When the guest types the same address, the apps open it and the tone is friendly. The apps trust an address the user gave with their own hands.
+- Wording: "Scan the code, copy the text, and paste it into your AI chat." (Korean: "QR을 찍어 나온 글을 복사해, AI 채팅창에 붙여넣으세요.")
+- The QR code holds the address of the start page (5.5). A QR code opens a browser, which is where the copy button is.
+- Below it, as the fallback: "Or type this address into your AI chat", with the entrance address printed as text, in full from `https://`, and short enough to type.
+- Why the guest hands the text over themselves. Observed on 20 September 2026 in the ChatGPT, Claude and Gemini apps:
+  - A photo of the placard alone does not open the sign. The apps read the address in the picture and do not open it. They also tend to treat text inside an image as a possible prompt injection, so the AI becomes guarded and explains its caution at length.
+  - When the guest types the same address, the apps open it and the tone is friendly. The apps trust what the user gave with their own hands.
   - Gemini opened an address only when it included the scheme. `example.com/ganpan` alone was not opened.
-- This is the reason for the address rules in section 3. The guest types one short address once, and the rest follows from it.
-- There is no QR code. A QR code opens a browser, and the conversation happens in the guest's AI chat.
-- A project with no physical space needs no placard. One line is enough: "If you have questions, give this link to your AI and start a conversation."
+- A project with no physical space needs no placard. A link to the start page is enough, with one line such as "Ask your AI about this".
 
 ## 9. Lifetime
 
@@ -167,3 +193,4 @@ v0.1 draft, 2026-09-20.
 - After the first app tests: the placard asks the guest to type the address, printed in full from `https://` (8). The entrance lists piece addresses in one copyable code block, because ChatGPT opens a piece only when the guest sends its address, and may include one attributed request from the owner (5.1, 5.3).
 - The entrance has a fixed order with the address block near the top, the owner's request covers the case where an address does not open, and sizes are limited to about 3,000 characters for the entrance and 8,000 for a piece (5.1, 5.3).
 - License set to CC BY 4.0.
+- After the design of 22 September 2026: the start page and the start prompt (2, 3.6, 4.2, 5.5), the placard carries a QR code to the start page with the typed address as the fallback (8), and the pages no longer make a request of the AI (5.1, 5.3). First check by the author the same day: it worked in ChatGPT and Claude, and Gemini opened only addresses in the latest message, so the prompt asks the AI to hand an address back when it cannot open it (5.5).

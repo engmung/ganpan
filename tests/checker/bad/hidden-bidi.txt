@@ -1,0 +1,2 @@
+# A right-to-left override (U+202E) can reorder what a person sees.
+Opening hours: ‮00:81 ot 00:21‬

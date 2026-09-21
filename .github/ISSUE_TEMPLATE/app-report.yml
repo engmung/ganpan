@@ -1,0 +1,43 @@
+name: How a sign behaved in an AI app
+description: You tried a sign in ChatGPT, Gemini, Claude or another app. Tell us what happened. 한국어로 써도 됩니다.
+labels: ["app-report"]
+body:
+  - type: input
+    id: app
+    attributes:
+      label: App
+      description: Name, platform, and plan if you know it. For example "Gemini, Android, free".
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Date you tried it
+    validations:
+      required: true
+  - type: input
+    id: sign
+    attributes:
+      label: Which sign
+      description: The address, such as https://ganpan.org/patternflow
+    validations:
+      required: true
+  - type: dropdown
+    id: how
+    attributes:
+      label: How you started
+      options:
+        - Copied the start prompt from the start page
+        - Typed or pasted the entrance address
+        - Sent the block of piece addresses
+        - Something else (describe below)
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: |
+        Did it ask what you wanted to know? Did it open the pieces by itself, or only when you sent the address? Did it show a warning, or become guarded? Did it make anything up? A screenshot or the text of the reply helps.
+    validations:
+      required: true

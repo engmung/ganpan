@@ -31,6 +31,12 @@ The starter files in `template/` are dedicated to the public domain under CC0 1.
 - SPDX identifier: `CC0-1.0`
 - Legal text: <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
 
+## The name
+
+The licenses above cover text and code. They do not cover the name. "Ganpan" and ganpan.org identify this convention and this site, which Seunghun Lee maintains.
+
+You are free to fork this repository, and free to say that your sign, tool or service follows or is compatible with the Ganpan convention. The licenses grant no right to use the name in a way that suggests your version or service is the original, or is endorsed by it. A modified version of the convention, or a service built on it, carries its own name.
+
 ## Hosted signs
 
 A sign hosted under `signs/<slug>/` belongs to its owner, and its license is whatever that owner states. It is not covered by the licenses above.

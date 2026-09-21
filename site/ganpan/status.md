@@ -15,13 +15,14 @@ There is a concept, prototype experiments, and one round of app tests by the aut
 - In March 2026, an exhibition prototype confirmed the reading behavior across several AIs: given an address, the AI reads the page and answers from its content.
 - In Proxy_AIArt, an experiment from the same period, a page tried to have visiting AIs leave a review. Each AI allowed different things, and in some cases having the AI carry data out in a URL was refused or blocked. The principle "the AI writes, the person sends" comes from this.
 - On 20 September 2026 this sign was tested in the ChatGPT, Claude and Gemini apps. None of them opened an address that arrived only inside a photo, even a full link, and they tended to treat text in an image as a possible injection and become guarded. All three opened the address once the user typed it, and the tone became friendly. Claude and Gemini then opened the pieces by themselves. ChatGPT opened a piece only after the user sent that piece's full address. The apps trust an address the user gave with their own hands.
-- The entrance of this sign lists all piece addresses in one code block and has one sentence marked as the owner's request about showing addresses in a code block. When the author checked, copying the block and sending it once opened the pieces, and the apps did not become guarded at the request. This was one check by one person.
+- The entrance of this sign lists all piece addresses in one code block. When the author checked on 20 September 2026, copying the block and sending it once opened the pieces. At that time the entrance also had one sentence marked as the owner's request, and the apps did not become guarded at it. This was one check by one person. That sentence has since moved into the start prompt.
 - One experiment failed because of a one-character difference in a domain name. The rule to keep addresses short and unambiguous comes from this.
 
 ## What has not been confirmed
 
 - Whether a person who sees the placard takes out their own AI at all. This is the biggest unknown.
-- Whether guests are willing to type an address into their AI chat, which is what the placard asks of them.
+- Whether the start page works for guests who are not the author. When the author tried it on 22 September 2026, copying the first message and sending it worked in ChatGPT and Claude, which asked back and then opened the pieces they needed. Gemini opened only addresses in the latest message. The prompt now asks the AI to hand an address back in a code block when it cannot open it, and whether Gemini follows that has not been checked.
+- Whether guests are willing to do that, or to type an address, at all.
 - Whether an entrance plus pieces gives more accurate answers than one long page. The comparison test is still being planned.
 - There is no per-app compatibility table yet.
 

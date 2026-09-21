@@ -20,11 +20,9 @@ AI를 위한 간판 · Signage for AI agents
 
 ## 직접 해 보기
 
-이 사이트도 간판을 달고 있다. 아래 주소를 평소 쓰는 AI(ChatGPT, Gemini, Claude 등)의 채팅창에 입력하고, Ganpan이 뭔지 한국어로 물어보면 된다. 간판은 영어로 쓰여 있고, 번역은 손님의 AI가 한다.
+이 사이트도 간판을 달고 있다. 시작 페이지를 열어 "프롬프트 복사"를 누르고, 평소 쓰는 AI 앱(ChatGPT, Gemini, Claude 등)에 붙여넣으면 된다. 간판은 영어로 쓰여 있고, 번역은 손님의 AI가 한다.
 
-```
-{{base}}/ganpan
-```
+<{{base}}/ganpan/start>
 
 ## 읽을 것
 

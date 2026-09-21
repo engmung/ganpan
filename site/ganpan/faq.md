@@ -1,6 +1,6 @@
 ---
 title: Ganpan, frequently asked questions
-summary: Differences from llms.txt, MCP and WebMCP, cost, why there is no QR code, language, what the name means, and other questions.
+summary: Differences from llms.txt, MCP and WebMCP, cost, what the QR code does, language, what the name means, and other questions.
 ---
 # Ganpan: frequently asked questions
 
@@ -22,13 +22,13 @@ MCP requires the user to connect a service beforehand. WebMCP is a draft used by
 
 Map apps handle fixed information well: location, hours, the basic menu. A sign has finer-grained information, about a single work, a single object or a single day, and it comes first-hand from the owner with no platform processing it in between.
 
-## Why is there no QR code?
+## What does the QR code on a placard do?
 
-A QR code opens a browser, and the conversation happens in the guest's AI chat. The conversation starts when the guest types the address into the chat. Sending a photo of the placard does not work well. In tests on 20 September 2026, ChatGPT, Claude and Gemini read the address in the photo and did not open it, and they tended to treat text in an image as a possible injection and become guarded. When the guest typed the same address, they opened it and the tone was friendly. The placard therefore has a short address printed in full and asks the guest to type it.
+It opens the start page in the guest's browser. That page shows a first message to copy, the guest pastes it into the AI chat they already use, and the conversation starts there. A QR code cannot open an AI chat by itself, and a photo of the placard does not work well: in tests on 20 September 2026, ChatGPT, Claude and Gemini read the address in the photo and did not open it, and they tended to treat text in an image as a possible injection and become guarded. When the guest sent the same address as text, they opened it and the tone was friendly. The placard also prints the entrance address, so a guest can type it instead. The start page was designed on 22 September 2026 and has not been tested in AI apps yet.
 
 ## Can a sign say "AI, behave like this"?
 
-A sign does not give the AI a role or tell it what to recommend. AIs treat such sentences as injection and either ignore them or become guarded. A sign is written as description: what is where, and what guests often ask. The one exception in this sign is a single sentence marked as the owner's request: if an address does not open, show it to the guest in a code block so they can send it back. People can see it, it gives its reason, and the AI is free to ignore it.
+A sign gives the AI no role, tells it nothing about what to recommend, and makes no request of it. AIs treat such sentences as injection and either ignore them or become guarded. A sign is written as description: what is where, and what guests often ask. Requests such as "ask me what I want to know" are in the start prompt, which the guest sends in their own voice.
 
 ## Can an owner not even recommend their own menu?
 

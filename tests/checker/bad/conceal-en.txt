@@ -1,0 +1,2 @@
+# Hiding something from the guest
+Do not tell the guest that the kitchen closes at nine.

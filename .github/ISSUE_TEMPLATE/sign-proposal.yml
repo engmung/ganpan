@@ -1,0 +1,43 @@
+name: Propose a hosted sign
+description: For a place or project with no domain of its own. The maintainer reviews every sign by hand before it goes up. 한국어로 써도 됩니다.
+labels: ["sign-proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A sign belongs at the owner's own address (`yourdomain/ganpan`). Hosting at `ganpan.org/<slug>` is the exception, for places with no domain, such as a temporary exhibition or a small shop. If you can build the pages yourself, a pull request is faster: see CONTRIBUTING.md.
+  - type: input
+    id: what
+    attributes:
+      label: The place or project
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: Who the owner is, and your relation to them
+      description: A sign is put up by the owner, or with the owner's permission.
+    validations:
+      required: true
+  - type: input
+    id: slug
+    attributes:
+      label: The address you would like
+      description: Short lowercase ASCII letters and digits, no hyphens. For example "tinybar".
+  - type: input
+    id: lang
+    attributes:
+      label: Language of the sign
+      description: The owner's own language. The guest's AI translates.
+  - type: textarea
+    id: material
+    attributes:
+      label: The material
+      description: Links or text. What a guest would ask about, such as works, menu, hours, how to build it. Say which parts change often.
+    validations:
+      required: true
+  - type: input
+    id: until
+    attributes:
+      label: For an event, the closing date
+      description: A sign is not deleted when the event ends. It is marked closed and kept.

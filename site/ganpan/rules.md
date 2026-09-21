@@ -10,7 +10,7 @@ Ganpan is a convention in which an owner puts up pages for a guest's AI to read 
 
 An owner's recommendation is written so that its source shows, as in "Owner's pick: this week, this one". A sign contains no hidden nudges that only the AI sees, no sentences that push the expensive item, and no sentences that run down a neighbor.
 
-An owner's request to the guest's AI is treated the same way as an owner's pick. The entrance of this sign has one: a sentence marked as the owner's request, asking the AI to show an address to the guest in a code block if it does not open, so the guest can send it back. People can see it, it is attributed, it gives its reason, it only helps the guest do what they came to do, and the AI is free to ignore it.
+The pages are the owner's voice, and the start prompt that a guest copies into their AI chat is the guest's voice. AI apps trust what the guest sends, so the start prompt holds only what a guest would say for themselves: which addresses hold what, and requests such as "ask me what I want to know". It has no recommendation and no nudge from the owner. Those stay on the pages, marked as the owner's, where the AI can tell who is speaking.
 
 Reason: the guest's AI is on the guest's side. If signs start trying to steer AIs, AIs will start distrusting signs in general, and honestly written signs will be buried with the rest. Web search has already been through this.
 
