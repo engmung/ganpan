@@ -151,7 +151,8 @@ If a standard path for actions (MCP, WebMCP or another) comes to cover "a guest 
 ## 8. The placard
 
 - Wording: "Scan the code, copy the text, and paste it into your AI chat." (Korean: "QR을 찍어 나온 글을 복사해, AI 채팅창에 붙여넣으세요.")
-- The QR code holds the address of the start page (5.5). A QR code opens a browser, which is where the copy button is.
+- The QR code holds the address of the start page (5.5). A QR code opens a browser, which is where the copy button is. Because it holds only that address, the wording and the prompt can change later and a printed code still works.
+- The reference build makes the QR code itself, as an image next to the start page, and a plain placard to print. Online QR generators often ask for a login or wrap the address in a short link of their own, and a sign should not depend on one.
 - Below it, as the fallback: "Or type this address into your AI chat", with the entrance address printed as text, in full from `https://`, and short enough to type.
 - Why the guest hands the text over themselves. Observed on 20 September 2026 in the ChatGPT, Claude and Gemini apps:
   - A photo of the placard alone does not open the sign. The apps read the address in the picture and do not open it. They also tend to treat text inside an image as a possible prompt injection, so the AI becomes guarded and explains its caution at length.

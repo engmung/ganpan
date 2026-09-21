@@ -23,6 +23,7 @@ template/          새 간판을 시작할 때 복사하는 틀
 tools/build.mjs    마크다운 → JS 없는 정적 HTML + 규약 검사 + 시작 페이지·시작 프롬프트 생성. 의존성 없음
 tools/lint.mjs     주인이 쓴 글 검사기(AI를 향한 말, 숨은 글자). 빌드가 부른다
 tools/test-checker.mjs + tests/checker/   검사기 시험과 예시 모음(bad / good / known-gaps)
+tools/qr.mjs       QR 생성기(의존성 없음, SVG·PNG). 시험은 tools/test-qr.mjs
 tools/serve.mjs    dist/ 로컬 미리보기
 docs/              CONTEXT, test-log, agent-playbook(에이전트가 간판을 만드는 수순), placard 견본
 AGENTS.md          코딩 에이전트용 안내(→ agent-playbook)
@@ -33,7 +34,7 @@ private/           비공개 메모, 글 초안 (gitignore)
 - 빌드: `npm run build` (→ `dist/`). 로컬 확인: `npm run build:local` 후 `npm run serve`.
 - 간판 본문은 마크다운의 제한된 부분집합으로 쓴다(지원 문법은 `tools/build.mjs` 상단). 조각 링크는 `<{{sign}}/slug>` 형태 — 절대 URL이 되고 주소가 글자로도 보인다.
 - 언어: 공개물은 영어가 정본. 간판은 한 언어로만 쓴다(번역은 손님의 AI가 한다). 가게·전시의 간판은 주인의 언어로.
-- 빌드는 간판마다 **시작 페이지**(`<간판>/start`)를 만든다. `sign.json` 의 `start.intro` 에 언어별 첫 문장(손님의 목소리)을 적으면, 입구의 조각 목록에서 한 줄 설명을 가져와 시작 프롬프트를 조립한다. 조각 전체가 3,000자 이하면 본문을 통째로 싣고, 넘으면 지도(주소 + 설명)만 싣는다. `start` 는 조각 이름으로 쓸 수 없다.
+- 빌드는 간판마다 **시작 페이지**(`<간판>/start`)를 만든다. `sign.json` 의 `start.intro` 에 언어별 첫 문장(손님의 목소리)을 적으면, 입구의 조각 목록에서 한 줄 설명을 가져와 시작 프롬프트를 조립한다. 조각 전체가 3,000자 이하면 본문을 통째로 싣고, 넘으면 지도(주소 + 설명)만 싣는다. 같이 만드는 것: 시작 페이지 주소의 QR 이미지(`start-qr.svg`, `start-qr.png`)와 인쇄용 기본 안내판(`placard`). 웹의 QR 생성기는 로그인을 요구하거나 단축 주소를 끼워 넣어서 직접 만든다(2026-09-22 결정). `start` 와 `placard` 는 조각 이름으로 쓸 수 없다.
 - 빌드는 페이지마다 `.md` 사본을 같이 낸다(SPEC 5.4). 근거는 `docs/CONTEXT.md` 3.2b.
 - **접수는 PR과 이슈뿐이다. 업로드 서비스는 없다.** 호스팅 간판 제안, 앱 동작 제보, 검사기를 빠져나가는 나쁜 예시가 들어오면 작성자가 직접 검토해 합친다(`CONTRIBUTING.md`, `.github/ISSUE_TEMPLATE/`). PR마다 `check.yml` 이 검사기 시험과 빌드를 돌린다.
 - **간판을 받아들일지는 작성자가 직접 읽고 정한다. 기준선은 `CONTRIBUTING.md` 의 "The review standard" 여덟 문항.** (2026-09-22 결정) 자동 검사는 기계가 확실히 아는 것만 막는다: 눈에 안 보이는 글자(사람이 diff에서 못 보는 유일한 것), 시작 프롬프트 글 속의 주소·길이, 형식 규칙. 문구 패턴은 빌드를 막지 않고 "검토자 확인" 알림만 낸다(표현을 바꾸면 피해 가므로 거르는 장치가 아니다). "안전하다"고 쓰지 않는다. 내세울 것은 시작 프롬프트가 틀에서 생성된다는 것, 복사되는 글이 그대로 보인다는 것, 사람이 검토하고 이력이 공개된다는 것.

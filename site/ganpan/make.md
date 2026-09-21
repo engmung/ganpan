@@ -85,7 +85,7 @@ Used:      Owner's pick: this week, the yellowtail. Less sweet cocktails are und
 
 ## 8. The placard
 
-The wording is "Scan the code, copy the text, and paste it into your AI chat." The QR code holds the address of the start page. Below it is the fallback, "Or type this address into your AI chat", with the entrance address as text, in full from `https://`, short enough to type. Gemini opened an address only when it included the scheme.
+The wording is "Scan the code, copy the text, and paste it into your AI chat." The QR code holds the address of the start page, so the wording and the prompt can change later and a printed code still works. The build makes the QR code itself (`start-qr.png`, `start-qr.svg`) and a plain placard to print (`placard`), so no online QR generator is needed. Below it is the fallback, "Or type this address into your AI chat", with the entrance address as text, in full from `https://`, short enough to type. Gemini opened an address only when it included the scheme.
 
 The guest hands the text over themselves because a photo of the placard does not open the sign. In the September 2026 tests the apps read the address in the picture and did not open it, and they tended to treat text in an image as a possible injection and become guarded. When the guest typed the same address, they opened it and the tone was friendly.
 

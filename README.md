@@ -40,7 +40,7 @@ AI apps open an address the user sends as text. They do not open one that arrive
 - The site: <https://ganpan.org>
 - Background, decisions and survey notes with sources (Korean): [docs/CONTEXT.md](docs/CONTEXT.md)
 - Test log (Korean): [docs/test-log.md](docs/test-log.md)
-- A printable placard sample: [docs/placard.html](docs/placard.html)
+- A placard to print, with its QR code: <https://ganpan.org/ganpan/placard>
 - The earlier record of this idea, from March 2026: [engmung/BYOA](https://github.com/engmung/BYOA)
 
 ## This repository
@@ -52,7 +52,7 @@ SPEC.md          the convention (English), SPEC.ko.md in Korean
 site/            ganpan.org: pages for people, and the sign for Ganpan itself
 signs/<slug>/    hosted signs for places with no domain, published at ganpan.org/<slug>
 template/        a starting point for a new sign (Korean)
-tools/           the build (Markdown to script-free static HTML, start pages, convention checks), the checker for owner-written text, and a local server
+tools/           the build (Markdown to script-free static HTML, start pages, convention checks), the checker for owner-written text, a QR code generator, and a local server
 tests/checker/   examples the checker must catch, must pass, and is known to miss
 docs/            context, test log, placard sample
 ```
@@ -61,7 +61,7 @@ docs/            context, test log, placard sample
 npm run build
 ```
 
-There are no dependencies. Node 20 or later is enough. The output goes to `dist/` and can be put on any static host. Pushing to `main` deploys it to GitHub Pages.
+There are no dependencies. Node 20 or later is enough. For each sign the build also makes a QR code of its start page (`start-qr.svg`, `start-qr.png`) and a placard to print (`placard`). To make a QR code for any address: `node tools/qr.mjs "https://example.com/ganpan/start" qr.png`. The output goes to `dist/` and can be put on any static host. Pushing to `main` deploys it to GitHub Pages.
 
 The build fails if a sign breaks the convention: a `<script>` tag, a link that is not an absolute URL, a query string on a sign address, a piece that the entrance does not link to, a slug with anything other than lowercase ASCII letters and digits, or characters a person cannot see. Phrases aimed at the AI are printed as notes for the reviewer. A person reads every hosted sign before it goes up.
 
