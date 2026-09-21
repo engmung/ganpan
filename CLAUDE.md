@@ -4,6 +4,11 @@
 자세한 배경은 `docs/CONTEXT.md`, 공개용 글 초안은 `private/essay-draft-ko.md`(공개 전까지 비공개),
 공개하면 안 되는 메모는 `private/NOTES.md`(gitignore 처리됨)에 있다.
 
+## 먼저 읽을 것
+
+- **`hold/` 로 시작하는 로컬 브랜치는 푸시하지 않는다.** 공개 시점을 작성자가 정해야 하는 작업이 들어 있다. 사유와 상태는 `private/NOTES.md` 맨 아래. 작성자가 "올려"라고 하기 전에는 `main` 에 합치지도 않는다.
+- `localdraft` 브랜치도 푸시하지 않는다(글 초안이 들어 있던 옛 이력).
+
 ## 저장소 구조
 
 ```
@@ -85,7 +90,7 @@ private/           비공개 메모, 글 초안 (gitignore)
    - 배운 것: 커스텀 도메인은 DNS를 넣은 **뒤에** 등록해야 인증서가 발급된다. 입구는 `<dir>.html` 로도 내야 `/ganpan` 이 리다이렉트 없이 열린다(빌드가 처리).
    - GitHub 계정명 `ganpan` 은 타인 소유라 확보 불가.
 2. 테스트 — 1차 완료 (2026-09-20, 작성자 폰, ChatGPT·Claude·Gemini). 결과와 하루 정리는 `docs/test-log.md`. 남은 것: 앱별로 나눈 상세 기록, 무료 요금제, 국내 앱(뤼튼·클로바X·에이닷·카나나), 색인된 뒤의 차이, 캐시가 얼마나 오래가는지.
-3. Patternflow 간판: 이게 뭔지 / 만드는 법 / 부품 목록 / 패턴 만들기 / 자주 묻는 질문
+3. Patternflow 간판 — 1단계 완료 (2026-09-20): `signs/patternflow/` (입구 + 조각 9개) → https://ganpan.org/patternflow 에 호스팅 중. 남은 것: patternflow.work/ganpan 으로 옮기는 PR(아래 방침), 앱 테스트 기록
    - 조사 결과(2026-09-20): patternflow.work는 Next.js 16 App Router, 운영 중(v3.10.4), CI 스모크 다수, `dev` → PR → `main`. 루트 레이아웃에 PostHog·Analytics가 붙으므로 `app/ganpan/page.tsx` 로 내면 군더더기가 실린다.
    - 방침: 이 저장소에서 정적 HTML로 만들어 테스트한 뒤, Patternflow 저장소에는 `web/public/ganpan/` 복사 + rewrite(또는 route handler) 한 개짜리 작은 PR로 넣는다. 그 저장소 안에서 개발하지 않는다.
    - 내용의 출처는 그 저장소의 README · BUILD_GUIDE.md · PATTERN_GUIDE.md · `hardware/bom/bom_v3.9.csv`. 전원은 `J4` 스크루 터미널뿐이다(USB-C를 전원으로 서술 금지 — 그 저장소의 hard rule).
