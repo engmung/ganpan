@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 
 const DIST = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "dist");
 const PORT = Number(process.argv[2] ?? process.env.PORT ?? 4173);
-const TYPES = { ".html": "text/html; charset=utf-8", ".txt": "text/plain; charset=utf-8", ".md": "text/markdown; charset=utf-8" };
+const TYPES = { ".html": "text/html; charset=utf-8", ".txt": "text/plain; charset=utf-8", ".md": "text/markdown; charset=utf-8", ".svg": "image/svg+xml", ".png": "image/png" };
 
 http
   .createServer((req, res) => {

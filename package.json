@@ -9,7 +9,7 @@
     "build": "node tools/build.mjs",
     "build:local": "node tools/build.mjs --base http://localhost:4173",
     "serve": "node tools/serve.mjs",
-    "test": "node tools/test-checker.mjs",
-    "check": "node tools/test-checker.mjs && node tools/build.mjs"
+    "test": "node tools/test-checker.mjs && node tools/test-qr.mjs",
+    "check": "node tools/test-checker.mjs && node tools/test-qr.mjs && node tools/build.mjs"
   }
 }

@@ -20,6 +20,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { lint } from "./lint.mjs";
+import { qrSvg, qrPng } from "./qr.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
@@ -271,6 +272,8 @@ const START = {
     ask: "First ask me briefly what I would like to know. Then read only the pages you need and explain at my level, in the language I am writing in. If something is not in these pages, tell me so. If you cannot open a page you need, do not guess. At the end of your reply, show me that page's address in a code block and ask me to send it back to you. Tell me that I do not need to open the link myself: I only copy it and paste it into this chat.",
     askInline: "First ask me briefly what I would like to know. Then answer from this text, at my level, in the language I am writing in. If something is not in this text, tell me so.",
     h1: (s) => `Ask your AI about ${s.title}`,
+    placard: { title: "Ask your AI", lead: "Scan the code, copy the text,<br>and paste it into your AI chat.", or: "Or type this address into your AI chat.", any: "Any AI you already use: ChatGPT, Gemini, Claude." },
+    forOwner: (qr, placard) => `For the owner: <a href="${qr}">QR code of this page (PNG)</a> · <a href="${placard}">placard to print</a>`,
     steps: ["Press the Copy prompt button.", "Open the AI app you already use and paste it."],
     copy: "Copy prompt", copied: "Copied", fail: "Press and hold the text below to copy it",
     show: "See the text that gets copied",
@@ -283,6 +286,8 @@ const START = {
     ask: "먼저 내가 뭐가 궁금한지 짧게 물어봐 줘. 그다음 필요한 페이지만 읽고, 내 수준에 맞춰 한국어로 설명해 줘. 이 페이지들에 없는 내용은 없다고 말해 줘. 필요한 페이지를 열 수 없으면 짐작해서 답하지 말고, 답 마지막에 그 페이지 주소를 코드 블록에 담아 보여 주면서 나한테 다시 보내 달라고 해 줘. 그때 나는 그 링크를 열어 볼 필요 없이, 복사해서 이 채팅에 붙여넣기만 하면 된다고도 알려 줘.",
     askInline: "먼저 내가 뭐가 궁금한지 짧게 물어봐 줘. 그다음 이 글을 바탕으로, 내 수준에 맞춰 한국어로 답해 줘. 이 글에 없는 내용은 없다고 말해 줘.",
     h1: (s) => `${s.title}, AI에게 물어보기`,
+    placard: { title: "AI에게 물어보세요", lead: "QR을 찍어 나온 글을 복사해,<br>AI 채팅창에 붙여넣으세요.", or: "또는 이 주소를 AI 채팅창에 입력하세요.", any: "ChatGPT, Gemini, Claude 등 평소 쓰는 AI면 됩니다." },
+    forOwner: (qr, placard) => `주인용: <a href="${qr}">이 페이지의 QR 이미지(PNG)</a> · <a href="${placard}">인쇄용 안내판</a>`,
     steps: ["프롬프트 복사 버튼을 누르세요.", "평소 쓰시는 AI 앱을 열어서 붙여넣으세요."],
     copy: "프롬프트 복사", copied: "복사됨", fail: "아래 글을 길게 눌러 복사하세요",
     show: "복사되는 글 보기",
@@ -381,10 +386,31 @@ function buildStart(sign, urlPath, where, pieces) {
     title: START[footLang].h1(sign),
     canonical: startUrl,
     extraCss,
-    body: `<main>\n${switcher}${sections.join("\n")}\n</main>\n<footer>\n<p>${START[footLang].foot(sign)}</p>\n</footer>\n${script}`,
+    body: `<main>\n${switcher}${sections.join("\n")}\n</main>\n<footer>\n<p>${START[footLang].foot(sign)}</p>\n<p>${START[footLang].forOwner(`${sign.url}/start-qr.png`, `${sign.url}/placard`)}</p>\n</footer>\n${script}`,
   });
   checkHtml(`${where} (start)`, html, { allowScript: true });
   emit(`${urlPath}/start.html`, startUrl, html);
+
+  // 시작 페이지의 QR. 웹의 QR 생성기는 로그인을 요구하거나 자기네 단축 주소를 끼워 넣곤 해서 빌드가 직접 만든다.
+  // QR에는 시작 페이지의 주소를 담는다. 안내 문구나 프롬프트를 바꿔도 인쇄한 QR은 그대로 쓸 수 있다.
+  write(`${urlPath}/start-qr.svg`, qrSvg(startUrl) + "\n");
+  write(`${urlPath}/start-qr.png`, qrPng(startUrl));
+
+  // 인쇄용 안내판. 기본 모양일 뿐이다. 제 디자인을 쓰려면 위의 QR 이미지만 가져가면 된다.
+  const placards = langs.map((lang) => {
+    const p = START[lang].placard;
+    return `<section class="placard" lang="${lang}">\n<h1>${p.title}</h1>\n<p class="name">${esc(sign.title)}</p>\n<p>${p.lead}</p>\n<div class="qr">${qrSvg(startUrl)}</div>\n<p class="small">${p.or}</p>\n<p class="url">${sign.url}</p>\n<p class="small">${p.any}</p>\n</section>`;
+  });
+  const placardCss = "body{max-width:none}.placard{max-width:30rem;margin:0 auto 3rem;padding:2.5rem;border:2px solid;text-align:center}.placard h1{font-size:2rem;margin:0}.placard .name{font-weight:700;margin:.2rem 0 1rem}.placard p{font-size:1.2rem;margin:.4rem 0}.placard .small{font-size:.95rem;margin-top:1rem}.placard .qr{width:14rem;margin:1rem auto}.placard .qr svg{width:100%;height:auto;display:block}.placard .url{font:700 1.1rem/1.35 ui-monospace,Consolas,monospace;word-break:break-all}@media print{body{padding:0}.placard{border:0;page-break-after:always;margin:0 auto}footer{display:none}}";
+  const placardHtml = shell({
+    lang: footLang,
+    title: `${sign.title}: placard`,
+    canonical: `${sign.url}/placard`,
+    extraCss: placardCss,
+    body: `<main>\n${placards.join("\n")}\n</main>\n<footer>\n<p>${START[footLang].foot(sign)}</p>\n</footer>`,
+  });
+  checkHtml(`${where} (placard)`, placardHtml);
+  write(`${urlPath}/placard.html`, placardHtml);
 }
 
 // 주인이 쓴 글을 훑는다(tools/lint.mjs). 기계가 확실히 아는 것(error)만 빌드를 막는다.
@@ -443,7 +469,7 @@ function buildSign(srcDir, urlPath) {
     const slug = f.slice(0, -3);
     const file = path.join(srcDir, f);
     if (!SLUG.test(slug)) errors.push(`${rel(file)}: 조각 slug는 소문자 ASCII와 숫자만 (하이픈·한글 금지)`);
-    if (slug === "start") errors.push(`${rel(file)}: "start" 는 시작 페이지의 자리다. 조각 이름으로 쓸 수 없다`);
+    if (slug === "start" || slug === "placard") errors.push(`${rel(file)}: "${slug}" 는 빌드가 만드는 페이지의 자리다. 조각 이름으로 쓸 수 없다`);
     const pieceUrl = `${sign.url}/${slug}`;
     const page = readPage(file, vars);
     lintOwnerText(rel(file), page.body);

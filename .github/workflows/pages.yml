@@ -23,6 +23,7 @@ jobs:
         with:
           node-version: 20
       - run: node tools/test-checker.mjs
+      - run: node tools/test-qr.mjs
       - run: node tools/build.mjs
       - uses: actions/upload-pages-artifact@v3
         with:
